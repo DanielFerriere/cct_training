@@ -8,7 +8,7 @@
 
 1. Lancez Visual Studio Code.
 2. Sélectionnez `Fichier > Ouvrir un dossier...` dans la barre de menus.
-3. Choisissez le fichier `menu.html`
+3. Choisissez le fichier `index.html`
 
 
 Étape 3 : Installer l'extension Live Server
