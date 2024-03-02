@@ -8,3 +8,8 @@ II- Requirements
 https://fonts.google.com/specimen/Poppins?query=poppins
 On importe une feuille de style de Google Fonts Poppins dans le fichier CSS (Police de caractères)
 
+III- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+On importe des logos avec des licenses libres pour pouvoir les utiliser sur notre site et les implémenter pour créer un menu principal plus agréable, plus esthétique
+
+IV- <i class='bx bx-chevron-right toggle'></i>
+On implémente une flèche qui aura pour but de dérouler le menu et les différentes options mises en jeu pour se déplacer sur le site
