@@ -27,4 +27,5 @@ Permet de définir des styles qui seront appliqués à un élément lorsqu'il es
 VIII-  height: calc(100% - 50px);
 Utile pour ajuster la disposition des éléments dans une mise en page flexible et adaptative.
 
-IX- 
+IX- .switch::before
+Création d'un élément visuel pour représenter un interrupteur (ou un commutateur) dans une interface utilisateur.

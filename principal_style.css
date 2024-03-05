@@ -14,7 +14,7 @@
     --sidebar-color: #FFF;
     --primary-color: #55209b;
     --primary-color-light: #f1e6ff ;
-    --toggle-color: ;
+    --toggle-color: #DDD ;
     --text-color: #707070 ;
 
     /* ====== Transition ====== */
@@ -180,3 +180,31 @@ header .image-text .header-text{
     opacity: 0;
 }
 
+.menu-bar .mode .toggle-switch{
+    height: 100%;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.toggle-switch .switch{
+    position: relative;
+    height: 22px;
+    width: 44px;
+    border-radius: 25px;
+    background: var(--toggle-color);
+}
+
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--sidebar-color);
+}
