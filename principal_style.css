@@ -13,12 +13,12 @@
     --body-color: #E0D2FF;
     --sidebar-color: #FFF;
     --primary-color: #55209b;
-    --primary-color-light: ;
+    --primary-color-light: #f1e6ff ;
     --toggle-color: ;
     --text-color: #707070 ;
 
     /* ====== Transition ====== */
-    --transition-03: all 0.2s ease;
+    --transition-02: all 0.2s ease;
     --transition-03: all 0.3s ease;
     --transition-04: all 0.4s ease;
     --transition-05: all 0.5s ease;
@@ -27,6 +27,20 @@
 body{
     height: 100vh;
     background: var(--body-color);
+}
+
+/* ====== Sidebar ====== */
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    /*margin-left: auto;
+    margin-right: auto;
+    text-align: center;*/
 }
 
 /* ====== Resuable CSS ====== */
@@ -42,18 +56,26 @@ body{
     align-items: center;
 }
 
-/* ====== Sidebar ====== */
-.sidebar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 250px;
-    padding: 10px 14px;
-    background: var(--sidebar-color);
-    /*margin-left: auto;
-    margin-right: auto;
-    text-align: center;*/
+.sidebar li{
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    font-size: 20px;
+}
+
+.sidebar li .icon,
+.sidebar li .text{
+    color: var(--text-color);
+    transition: var(--transition-02);
 }
 
 .sidebar header{
@@ -100,3 +122,61 @@ header .image-text .header-text{
     color: var(--sidebar-color);
     font-size: 22px;
 }
+.sidebar .search-box{
+    background: var(--primary-color-light);
+}
+
+.search-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+
+.sidebar li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--transition-04);
+}
+
+.sidebar li a:hover{
+    background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--sidebar-color);
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-bar .mode{
+    background: var(--primary-color-light);
+}
+
+.menu-bar .mode .moon-sun{
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-bar .mode i{
+    position: absolute;
+}
+
+.menu-bar .mode i.sun{
+    opacity: 0;
+}
+
