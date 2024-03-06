@@ -6,5 +6,26 @@ ce qui est généralement souhaitable pour assurer une expérience utilisateur c
 
 II- Requirements
 https://fonts.google.com/specimen/Poppins?query=poppins
-On importe une feuille de style de Google Fonts Poppins dans le fichier CSS (Police de caractères)
+On importe une feuille de style de Google Fonts Poppins dans le fichier CSS (Police de caractères).
 
+III- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+On importe des logos avec des licenses libres pour pouvoir les utiliser sur notre site et les implémenter pour créer un menu principal plus agréable, plus esthétique.
+
+IV- <i class='bx bx-chevron-right toggle'></i>
+On implémente une flèche qui aura pour but de dérouler le menu et les différentes options mises en jeu pour se déplacer sur le site.
+
+V- <input type="search" placeholder="Search...">
+L'attribut type="search" indique que c'est un champ de recherche, et placeholder="Search..." définit un texte d'invite qui apparaîtra dans le champ 
+tant que l'utilisateur n'aura pas saisi de texte. En bref, cela permet aux utilisateurs de saisir des termes de recherche dans ce champ spécifique.
+
+VI- "--transition-03: all 0.2s ease;"
+Définir des durées de transition réutilisables et de les appliquer facilement à différents éléments de la page web pour obtenir des effets de transition cohérents.
+
+VII- ":hover" 
+Permet de définir des styles qui seront appliqués à un élément lorsqu'il est survolé par la souris. 
+
+VIII-  height: calc(100% - 50px);
+Utile pour ajuster la disposition des éléments dans une mise en page flexible et adaptative.
+
+IX- .switch::before
+Création d'un élément visuel pour représenter un interrupteur (ou un commutateur) dans une interface utilisateur.
