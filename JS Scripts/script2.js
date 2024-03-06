@@ -21,12 +21,25 @@ document.addEventListener("DOMContentLoaded", function() {
         var full_email = document.getElementById("full_email").value;
         var full_password = document.getElementById("full_password").value;
 
-        localStorage.setItem("Full-Name", full_name);
-        localStorage.setItem("Full-Email", full_email);
-        localStorage.setItem("Full-Password", full_password);
+        // Vérifier si l'utilisateur existe déjà
+        var users = JSON.parse(localStorage.getItem("users")) || [];
 
-        // Optional: Redirect to login page after registration
-        // window.location.href = "login.html";
+        var existingUser = users.find(user => user.email === full_email);
+
+        if (existingUser) {
+            alert("User already exists. Please log in.");
+            return;
+        }
+
+        // Ajouter le nouvel utilisateur
+        var newUser = { name: full_name, email: full_email, password: full_password };
+        users.push(newUser);
+        localStorage.setItem("users", JSON.stringify(users));
+
+        alert("User registered successfully! Please log in.");
+
+        // Redirection facultative vers la page de connexion après l'inscription
+        window.location.href = "login.html";
     });
 
     loginForm.addEventListener("submit", function(event) {
@@ -35,11 +48,12 @@ document.addEventListener("DOMContentLoaded", function() {
         var loginEmail = document.getElementById("loginEmail").value;
         var loginPassword = document.getElementById("loginPassword").value;
 
-        var storedEmail = localStorage.getItem("Full-Email");
-        var storedPassword = localStorage.getItem("Full-Password");
+        var users = JSON.parse(localStorage.getItem("users")) || [];
 
-        if (loginEmail === storedEmail && loginPassword === storedPassword) {
-            // Redirect to index.html if credentials match
+        var currentUser = users.find(user => user.email === loginEmail && user.password === loginPassword);
+
+        if (currentUser) {
+            // Redirection vers la page index.html si les identifiants sont corrects
             window.location.href = "index.html";
         } else {
             alert("Invalid email or password. Please try again.");

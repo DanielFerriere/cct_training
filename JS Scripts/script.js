@@ -22,3 +22,17 @@ modeSwitch.addEventListener("click", () => {
         modeText.innerText = "Dark Mode"
     }
 })
+
+document.addEventListener("DOMContentLoaded", function() {
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    logoutBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        // Effacer les informations d'identification de l'utilisateur stockées localement
+        localStorage.removeItem("currentUser");
+
+        // Rediriger vers la page de connexion
+        window.location.href = "login.html";
+    });
+});
