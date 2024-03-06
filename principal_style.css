@@ -21,12 +21,13 @@
     --transition-02: all 0.2s ease;
     --transition-03: all 0.3s ease;
     --transition-04: all 0.4s ease;
-    --transition-05: all 0.5s ease;
+    --transition-05: all 0.5s ease; 
 }
 
 body{
     height: 100vh;
     background: var(--body-color);
+    transition: var(--transition-05);
 }
 
 body.dark{
@@ -47,9 +48,15 @@ body.dark{
     width: 250px;
     padding: 10px 14px;
     background: var(--sidebar-color);
+    transition: var(--transition-05);
+    z-index: 100;
     /*margin-left: auto;
     margin-right: auto;
     text-align: center;*/
+}
+
+.sidebar.close{
+    width: 88px;
 }
 
 /* ====== Resuable CSS ====== */
@@ -57,12 +64,20 @@ body.dark{
     font-size: 16px;
     font-weight: 500;
     color: var(--text-color);
+    transition: var(--transition-03);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text{
+    opacity: 0;
 }
 
 .sidebar .image{
     min-width: 60px; 
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .sidebar li{
@@ -77,7 +92,7 @@ body.dark{
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 40px;
+    min-width: 60px;
     font-size: 20px;
 }
 
@@ -120,7 +135,7 @@ header .image-text .header-text{
     position: absolute;
     top: 50%;
     right: -25px;
-    transform: translateY(-50%);
+    transform: translateY(-50%) rotate(180deg);
     height: 25px;
     width: 25px;
     background: var(--primary-color);
@@ -130,9 +145,25 @@ header .image-text .header-text{
     border-radius: 50%;
     color: var(--sidebar-color);
     font-size: 22px;
+    transition: var(--transition-03);
 }
+
+.sidebar.close header .toggle{
+    transform: translateY(-50%);
+}
+
+body.dark .sidebar header .toggle{
+    color: var(--text-color);
+}
+
+.sidebar .menu{
+    margin-top: 35px;
+}
+
 .sidebar .search-box{
     background: var(--primary-color-light);
+    border-radius: 6px;
+    transition: var(--transition-05);
 }
 
 .search-box input{
@@ -141,6 +172,8 @@ header .image-text .header-text{
     outline: none;
     border: none;
     border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
     background: var(--primary-color-light);
 }
 
@@ -163,6 +196,11 @@ header .image-text .header-text{
     color: var(--sidebar-color);
 }
 
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+}
+
 .sidebar .menu-bar{
     height: calc(100% - 50px);
     display: flex;
@@ -171,31 +209,48 @@ header .image-text .header-text{
 }
 
 .menu-bar .mode{
+    position: relative;
     background: var(--primary-color-light);
+    border-radius: 6px;
 }
 
 .menu-bar .mode .moon-sun{
     height: 50px;
-    width: 60px;
+    width: 50px;
     display: flex;
     align-items: center;
 }
 
 .menu-bar .mode i{
     position: absolute;
+    transition: var(--transition-03);
 }
 
 .menu-bar .mode i.sun{
     opacity: 0;
 }
 
+body.dark .menu-bar .mode i.sun{
+    opacity: 1;
+}
+
+body.dark .menu-bar .mode i.moon{
+    opacity: 0;
+}
+
+
 .menu-bar .mode .toggle-switch{
+    position: absolute;
+    right: 0;
     height: 100%;
     min-width: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+    transition: var(--transition-05);
 }
 
 .toggle-switch .switch{
@@ -204,6 +259,7 @@ header .image-text .header-text{
     width: 44px;
     border-radius: 25px;
     background: var(--toggle-color);
+    transition: var(--transition-05);
 }
 
 .switch::before{
@@ -221,4 +277,25 @@ header .image-text .header-text{
 
 body.dark .switch::before{
     left: 24px;
+}
+
+.home{
+    position: relative;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    transition: var(--transition-05);
+}
+
+.home .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 8px 40px;
+}
+
+.sidebar.close ~ .home{
+    left: 88px;
+    width: calc(100% - 88px);
 }
