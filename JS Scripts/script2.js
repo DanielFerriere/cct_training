@@ -1,16 +1,16 @@
-const wrapper = document.querySelector(".wrapper"),
-      loginLink = document.querySelector(".login-link"),
-      registerLink = document.querySelector(".register-link");
-
-registerLink.addEventListener('click', () => {
-    wrapper.classList.add("active");
-})
-
-loginLink.addEventListener('click', () => {
-    wrapper.classList.remove("active");
-})
-
 document.addEventListener("DOMContentLoaded", function() {
+    const wrapper = document.querySelector(".wrapper");
+    const loginLink = document.querySelector(".login-link");
+    const registerLink = document.querySelector(".register-link");
+
+    registerLink.addEventListener('click', () => {
+        wrapper.classList.add("active");
+    });
+
+    loginLink.addEventListener('click', () => {
+        wrapper.classList.remove("active");
+    });
+
     const registerForm = document.getElementById("registerForm");
     const loginForm = document.getElementById("loginForm");
 
@@ -24,22 +24,32 @@ document.addEventListener("DOMContentLoaded", function() {
         // Vérifier si l'utilisateur existe déjà
         var users = JSON.parse(localStorage.getItem("users")) || [];
 
-        var existingUser = users.find(user => user.email === full_email);
+        var existingUser = users.find(user => {
+            var decryptedEmail = CryptoJS.AES.decrypt(user.email, "secret-key").toString(CryptoJS.enc.Utf8);
+            return decryptedEmail === full_email;
+        });
 
         if (existingUser) {
             alert("User already exists. Please log in.");
             return;
         }
 
-        // Ajouter le nouvel utilisateur
-        var newUser = { name: full_name, email: full_email, password: full_password };
+        // Chiffrer le nom d'utilisateur, l'adresse e-mail et le mot de passe avant de les stocker
+        var encryptedName = CryptoJS.AES.encrypt(full_name, "secret-key").toString();
+        var encryptedEmail = CryptoJS.AES.encrypt(full_email, "secret-key").toString();
+        var encryptedPassword = CryptoJS.AES.encrypt(full_password, "secret-key").toString();
+
+        // Ajouter le nouvel utilisateur avec les données chiffrées
+        var newUser = { name: encryptedName, email: encryptedEmail, password: encryptedPassword };
         users.push(newUser);
+
+        // Écrire les données dans le stockage local
         localStorage.setItem("users", JSON.stringify(users));
 
         alert("User registered successfully! Please log in.");
 
         // Redirection facultative vers la page de connexion après l'inscription
-        window.location.href = "login.html";
+        wrapper.classList.remove("active");
     });
 
     loginForm.addEventListener("submit", function(event) {
@@ -50,10 +60,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         var users = JSON.parse(localStorage.getItem("users")) || [];
 
-        var currentUser = users.find(user => user.email === loginEmail && user.password === loginPassword);
+        var currentUser = users.find(user => {
+            var decryptedEmail = CryptoJS.AES.decrypt(user.email, "secret-key").toString(CryptoJS.enc.Utf8);
+            return decryptedEmail === loginEmail && CryptoJS.AES.decrypt(user.password, "secret-key").toString(CryptoJS.enc.Utf8) === loginPassword;
+        });
 
         if (currentUser) {
             // Redirection vers la page index.html si les identifiants sont corrects
+            alert("Login successful!");
             window.location.href = "index.html";
         } else {
             alert("Invalid email or password. Please try again.");
