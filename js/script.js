@@ -24,8 +24,26 @@ modeSwitch.addEventListener("click", () => {
 })
 
 document.addEventListener("DOMContentLoaded", function() {
-    const logoutBtn = document.getElementById("logoutBtn");
+    const dashboardBtn = document.getElementById("dashboardBtn");
+    
+    dashboardBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.location.href = "index.html";
+    })
+});
 
+document.addEventListener("DOMContentLoaded", function() {
+    const trainingBtn = document.getElementById("trainingBtn");
+    
+    trainingBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.location.href = "cinematique.html";
+    })
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const logoutBtn = document.getElementById("logoutBtn");
+    
     logoutBtn.addEventListener("click", function(event) {
         event.preventDefault();
 
@@ -36,3 +54,6 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = "login.html";
     });
 });
+
+
+export {body, sidebar, toggle, search, modeSwitch, modeText};
