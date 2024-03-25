@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     trainingBtn.addEventListener("click", function(event) {
         event.preventDefault();
-        window.location.href = "cinematique.html";
+        window.location.href = "kinematic.html";
     })
 });
 
