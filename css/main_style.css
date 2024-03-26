@@ -70,6 +70,7 @@ body.dark{
 }
 
 .sidebar.close .text{
+    font-size: 0px;
     opacity: 0;
 }
 
