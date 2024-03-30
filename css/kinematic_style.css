@@ -1,5 +1,22 @@
 /* kinematic style */
 
+:root{
+    --text-button-color: #707070;
+    --text-button-hover-color: #FFF;
+    --button-color: #E0D2FF;
+    --button-hover-color: #55209b;
+    --button-disabled-color: #f1e6ff;
+}
+
+body.dark{
+    --text-button-color: #ccc;
+    --text-button-hover-color: #CCC;
+    --button-color: #3d3d3d;
+    --button-hover-color: #6d6d6d;
+}
+
+
+
 .game{
     position: fixed;
     height: 88%;
@@ -35,23 +52,30 @@
     transition: var(--transition-04);
 }
 
-.game .gameButton li a{
+.game .gameButton li button{
     height: 100%;
     width: 70%;
+    font-size: 30px;
+    font-weight: 500;
     text-align: center;
     text-decoration: none;
+    border: none;
     border-radius: /*6px*/ 0.5em;
-    background: var(--body-color);
-    transition: var(--transition-05);
+    color: var(--text-button-color);
+    background-color: var(--button-color);
+    transition: var(--transition-03);
 }
 
-.game .gameButton li a:hover{
+.game .gameButton li button:hover{
     cursor: pointer;
-    background: var(--primary-color);
-    transition: var(--transition-05);
+    color: var(--text-button-hover-color);
+    background-color: var(--button-hover-color);
+    transition: var(--transition-03);
 }
 
-.game .gameButton li a:hover .text{
-    color: var(--sidebar-color);
-    transition: var(--transition-04);
+.game .gameButton li button:disabled{
+    cursor: default;
+    color: var(--text-button-hover-color);
+    background-color: var(--button-disabled-color);
+    transition: var(--transition-03);
 }
