@@ -5,6 +5,8 @@ const body = document.querySelector("body"),
       modeSwitch = document.querySelector(".toggle-switch"),
       modeText = document.querySelector(".mode-text");
 
+
+      
 toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close");
 })
@@ -22,6 +24,8 @@ modeSwitch.addEventListener("click", () => {
         modeText.innerText = "Dark Mode"
     }
 })
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const dashboardBtn = document.getElementById("dashboardBtn");
@@ -55,5 +59,3 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
-export {body, sidebar, toggle, search, modeSwitch, modeText};
