@@ -3,7 +3,8 @@ const button1 = document.getElementById("gameBtn1"),
       button3 = document.getElementById("gameBtn3"),
       button4 = document.getElementById("gameBtn4"),
       gameImg = document.getElementById("gameImg"),
-      modal = document.getElementsByClassName("modal")[0];
+      modal = document.getElementsByClassName("modal")[0],
+      retryBtn = document.getElementById("retryBtn");
 
 
 
@@ -57,6 +58,10 @@ class Game {
         const response = await fetch("../assets/kinematic/image.json");
         var json_data = await response.json();
         this.references = json_data["name_file_fr"];
+
+        this.score = 0;
+        this.score_max = this.references.length;
+
         this.guessing = this.references.slice();
         shuffle(this.guessing);
 
@@ -67,6 +72,8 @@ class Game {
     finish_game() {
         for (let i =0; i<4; i++) this.buttons[i].disabled = true;
 
+        let modal_text = modal.getElementsByClassName("modal-content")[0].getElementsByTagName("h2")[0];
+        modal_text.innerText = "Votre score est de ".concat(this.score,"/",this.score_max);
         modal.classList.toggle("show-modal");
     }
 
@@ -147,7 +154,13 @@ button4.addEventListener("click", function(event) {
     game.reply(3);
 });
 
+retryBtn.addEventListener("click", function(event) {
+    console.log("Retry button has been click");
+    game.begin();
+});
+
 game.begin();
+
 
 //var arr = [1,2,3,4,5,6];
 //console.log(array_sample(arr, 3));
