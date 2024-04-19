@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     trainingBtn.addEventListener("click", function(event) {
         event.preventDefault();
-        window.location.href = "kinematic.html";
+        window.location.href = "training.html";
     })
 });
 
