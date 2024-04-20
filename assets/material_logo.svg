@@ -1,0 +1,20 @@
+<svg width="450" height="450" viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="450" height="450" fill="white"/>
+<rect x="59" y="129" width="332" height="192" stroke="black" stroke-width="8"/>
+<mask id="mask0_1_2" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="55" y="125" width="340" height="200">
+<rect x="55" y="125" width="340" height="200" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_1_2)">
+<line x1="179.841" y1="322.917" x2="372.841" y2="122.917" stroke="black" stroke-width="6"/>
+<line x1="227.841" y1="322.917" x2="420.841" y2="122.917" stroke="black" stroke-width="6"/>
+<line x1="275.841" y1="322.917" x2="468.841" y2="122.917" stroke="black" stroke-width="6"/>
+<line x1="323.841" y1="322.917" x2="516.841" y2="122.917" stroke="black" stroke-width="6"/>
+<line x1="371.841" y1="322.917" x2="564.841" y2="122.917" stroke="black" stroke-width="6"/>
+<line x1="-12.1588" y1="322.917" x2="180.841" y2="122.917" stroke="black" stroke-width="6"/>
+<line x1="35.8412" y1="322.917" x2="228.841" y2="122.917" stroke="black" stroke-width="6"/>
+<line x1="83.8412" y1="322.917" x2="276.841" y2="122.917" stroke="black" stroke-width="6"/>
+<line x1="131.841" y1="322.917" x2="324.841" y2="122.917" stroke="black" stroke-width="6"/>
+<line x1="-108.159" y1="322.917" x2="84.8412" y2="122.917" stroke="black" stroke-width="6"/>
+<line x1="-60.1588" y1="322.917" x2="132.841" y2="122.917" stroke="black" stroke-width="6"/>
+</g>
+</svg>

@@ -8,8 +8,7 @@
     <title>CCT Training - Cinématique</title>
 
     <!--======= CSS =======-->
-    <link rel="stylesheet" href="../css/main_style.css">
-    <link rel="stylesheet" href="css/training_style.css">
+    <link rel="stylesheet" href="./css/main_style.css">
 
     <!-- ====== Boxicons CSS ====== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -109,12 +108,19 @@
         <div class="text">Training</div>
         
         <main>
-            <div class="grid-button">
+            <div class="grid-2x2">
+
+                <li>
+                    <button type="button">
+                        Placeholder
+                        <img src="./assets/placeholder.png">
+                    </button>
+                </li>
 
                 <li>
                     <button type="button" id="shapeBtn">
                         Usual shape
-                        
+                        <img src="./assets/shape_logo.svg">
                     </button>
                 </li>
 
@@ -128,14 +134,7 @@
                 <li>
                     <button type="button" id="materialBtn">
                         Material
-                        <img src="./assets/material_logo.png">
-                    </button>
-                </li>
-
-                <li>
-                    <button type="button" id="looseBtn">
-                        Loose and tightening
-
+                        <img src="./assets/material_logo.svg">
                     </button>
                 </li>
 
@@ -145,23 +144,33 @@
         <div class="modal">
 
             <div class="modal-content" id="shapeModal">
-              <h2>Modal : game mode selection</h2>
-              <button id="retryBtn">Game mode 1</button>
+                <h2>Usual shape game mode</h2>
+
+                <button id="BtnG1M1">Choose the word</button>
+                <button id="BtnG1M2">Write the name</button>
+                <button id="BtnG1M3">Find the picture</button>
+                <button id="BtnG1M4">Identify the shape</button>
+                <button class="backBtn">Back</button>
             </div>
 
             <div class="modal-content" id="kinematicModal">
-                <h2>Modal : game mode selection</h2>
-                <button id="retryBtn">Game mode 2</button>
+                <h2>Kinematic link game mode</h2>
+
+                <button id="BtnG2M1">Choose the word</button>
+                <button id="BtnG2M2">Write the name</button>
+                <button id="BtnG2M3">Find the picture</button>
+                <button id="BtnG2M4">Identify the link</button>
+                <button class="backBtn">Back</button>
             </div>
             
             <div class="modal-content" id="materialModal">
-                <h2>Modal : game mode selection</h2>
-                <button id="retryBtn">Game mode 3</button>
-            </div>
+                <h2>Material game mode</h2>
 
-            <div class="modal-content" id="looseShape">
-                <h2>Modal : game mode selection</h2>
-                <button id="retryBtn">Game mode 4</button>
+                <button id="BtnG3M1">Choose the word</button>
+                <button id="BtnG3M2">Write the name</button>
+                <button id="BtnG3M3">Find the picture</button>
+                <button id="BtnG3M4">Identify the material</button>
+                <button class="backBtn">Back</button>
             </div>
 
         </div>

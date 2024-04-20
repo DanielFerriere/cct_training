@@ -17,6 +17,12 @@
     --toggle-color: #DDD ;
     --text-color: #707070 ;
 
+    --text-button-color: #707070;
+    --text-button-hover-color: #FFF;
+    --button-color: #E0D2FF;
+    --button-hover-color: #55209b;
+    --button-disabled-color: #f1e6ff;
+
     /* ====== Transition ====== */
     --transition-02: all 0.2s ease;
     --transition-03: all 0.3s ease;
@@ -37,6 +43,12 @@ body.dark{
     --primary-color-light: #3a3b3c ;
     --toggle-color: #fff ;
     --text-color: #ccc ;
+
+    --text-button-color: #ccc;
+    --text-button-hover-color: #CCC;
+    --button-color: #3d3d3d;
+    --button-hover-color: #6d6d6d;
+    --button-disabled-color: #a8a8a8;
 }
 
 /* ====== Sidebar ====== */
@@ -283,6 +295,7 @@ body.dark .switch::before{
 
 
 
+
 .home{
     position: relative;
     left: 250px;
@@ -306,6 +319,7 @@ body.dark .switch::before{
     position: static;
     flex: 1 1 auto;
     margin: 0 2em 2em 2em;
+    padding: 1.5em;
     border-radius: 0.5em;
     display: flex;
     /*text-align: center;*/
@@ -313,7 +327,106 @@ body.dark .switch::before{
     transition: var(--transition-01);
 }
 
+.home button{
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 0.5em;
+    color: var(--text-button-color);
+    background-color: var(--button-color);
+    transition: var(--transition-03);
+}
 
+.home button:hover{
+    cursor: pointer;
+    color: var(--text-button-hover-color);
+    background-color: var(--button-hover-color);
+    transition: var(--transition-03);
+}
+
+.home button:disabled{
+    cursor: default;
+    color: var(--text-button-hover-color);
+    background-color: var(--button-disabled-color);
+    transition: var(--transition-03);
+}
+
+.home button img{
+    height: 7em;
+    margin: auto;
+    padding: 20px;
+    display: block;
+    border: none;
+    border-radius: 50%;
+}
+
+
+.grid-2x2 {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /*background-color: blue;*/
+}
+
+.grid-2x2 li {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-2x2 li button {
+    flex: 0 1 auto;
+    width: calc(100% - 1em);
+}
+
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: #cccccc38;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: var(--transition-02);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-button-color);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px gray;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+}
+
+.modal-content button {
+    margin-top: 0.5em;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: var(--transition-02);
+}
+
+.show-modal-content {
+    visibility: visible;
+}
 
 
 
