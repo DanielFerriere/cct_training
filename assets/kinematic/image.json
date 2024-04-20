@@ -1,0 +1,16 @@
+{
+    "name_file_fr" : [
+        { "name": "appuie plan", "file": "appui_plan_x.svg" },
+        { "name": "glissière", "file": "glissiere_x.svg" },
+        { "name": "linéaire annulaire", "file": "lineaire_annulaire_x.svg" },
+        { "name": "linéaire rectiligne", "file": "lineaire_rectiligne_x_y.svg" },
+        { "name": "pivot glissant", "file": "pivot_glissant_x.svg" },
+        { "name": "pivot", "file": "pivot_x.svg" },
+        { "name": "hélicoïdale", "file": "helicoidale_x.svg" },
+        { "name": "ponctuelle", "file": "ponctuelle_x.svg" },
+        { "name": "rotule", "file": "rotule.svg" },
+        { "name": "rotule à doigt", "file": "rotule_doigt_x.svg" }
+    ],
+
+    "name_file_en" : []
+}

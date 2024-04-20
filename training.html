@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CCT Training</title>
+    <title>CCT Training - Cinématique</title>
 
     <!--======= CSS =======-->
-    <link rel="stylesheet" href="../css/main_style.css">
+    <link rel="stylesheet" href="./css/main_style.css">
 
     <!-- ====== Boxicons CSS ====== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -42,7 +42,7 @@
                 <ul class="menu-links">
 
                     <li class="nav-link">
-                        <a href="#" id="dashboardBtn">
+                        <a href="index.html" id="dashboardBtn">
                             <i class='bx bx-home-alt icon' ></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
@@ -56,7 +56,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#" id="trainingBtn">
+                        <a href="training.html" id="trainingBtn">
                             <i class='bx bxs-graduation icon'></i>                            
                             <span class="text nav-text">Training</span>
                         </a>
@@ -104,11 +104,81 @@
         </div>
     </nav>
 
-    <section class="home">
-        <div class="text">Dashboard</div>
+    <section id="damn" class="home">
+        <div class="text">Training</div>
+        
+        <main>
+            <div class="grid-2x2">
+
+                <li>
+                    <button type="button">
+                        Placeholder
+                        <img src="./assets/placeholder.png">
+                    </button>
+                </li>
+
+                <li>
+                    <button type="button" id="shapeBtn">
+                        Usual shape
+                        <img src="./assets/shape_logo.svg">
+                    </button>
+                </li>
+
+                <li>
+                    <button type="button" id="kinematicBtn">
+                        Kinematic link
+                        <img src="./assets/kinematique_logo.svg">
+                    </button>
+                </li>
+
+                <li>
+                    <button type="button" id="materialBtn">
+                        Material
+                        <img src="./assets/material_logo.svg">
+                    </button>
+                </li>
+
+            </div>
+        </main>
+        
+        <div class="modal">
+
+            <div class="modal-content" id="shapeModal">
+                <h2>Usual shape game mode</h2>
+
+                <button id="BtnG1M1">Choose the word</button>
+                <button id="BtnG1M2">Write the name</button>
+                <button id="BtnG1M3">Find the picture</button>
+                <button id="BtnG1M4">Identify the shape</button>
+                <button class="backBtn">Back</button>
+            </div>
+
+            <div class="modal-content" id="kinematicModal">
+                <h2>Kinematic link game mode</h2>
+
+                <button id="BtnG2M1">Choose the word</button>
+                <button id="BtnG2M2">Write the name</button>
+                <button id="BtnG2M3">Find the picture</button>
+                <button id="BtnG2M4">Identify the link</button>
+                <button class="backBtn">Back</button>
+            </div>
+            
+            <div class="modal-content" id="materialModal">
+                <h2>Material game mode</h2>
+
+                <button id="BtnG3M1">Choose the word</button>
+                <button id="BtnG3M2">Write the name</button>
+                <button id="BtnG3M3">Find the picture</button>
+                <button id="BtnG3M4">Identify the material</button>
+                <button class="backBtn">Back</button>
+            </div>
+
+        </div>
+
     </section>
 
-    <script src="../js/script.js" type="module"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/training_script.js" type="module"></script>
 
 </body>
 </html>

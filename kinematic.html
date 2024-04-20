@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CCT Training</title>
+    <title>CCT Training - Cinématique</title>
 
     <!--======= CSS =======-->
     <link rel="stylesheet" href="../css/main_style.css">
+    <link rel="stylesheet" href="css/kinematic_style.css">
 
     <!-- ====== Boxicons CSS ====== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -105,10 +106,45 @@
     </nav>
 
     <section class="home">
-        <div class="text">Dashboard</div>
+        <div class="text">Entrainement cinematique</div>
+
+        <div class="game">
+
+            <img id="gameImg" src="../assets/placeholder.png" alt="placeholder">
+
+            <div class="gameButton">
+
+                <li id="">
+                    <button type="button" id="gameBtn1">Button 1</button>
+                </li>
+
+                <li id="">
+                    <button type="button" id="gameBtn2">Button 2</button>
+                </li>
+
+                <li id="">
+                    <button type="button" id="gameBtn3">Button 3</button>
+                </li>
+
+                <li id="">
+                    <button type="button" id="gameBtn4">Button 4</button>
+                </li>
+                
+            </div>
+
+        </div>
+
+        <div class="modal">
+            <div class="modal-content">
+              <h2>Modal : game finish</h2>
+              <button id="retryBtn">Retry</button>
+            </div>
+        </div>
+
     </section>
 
-    <script src="../js/script.js" type="module"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/kinematic_script.js" type="module"></script>
 
 </body>
 </html>
