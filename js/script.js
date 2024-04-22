@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     dashboardBtn.addEventListener("click", function(event) {
         event.preventDefault();
-        window.location.href = "index.html";
+        window.location.href = "/index.html";
     })
 });
 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     trainingBtn.addEventListener("click", function(event) {
         event.preventDefault();
-        window.location.href = "training.html";
+        window.location.href = "/training.html";
     })
 });
 
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.removeItem("currentUser");
 
         // Rediriger vers la page de connexion
-        window.location.href = "login.html";
+        window.location.href = "/login.html";
     });
 });
 
