@@ -1,5 +1,6 @@
 /* kinematic style */
 
+/*
 :root{
     --text-button-color: #707070;
     --text-button-hover-color: #FFF;
@@ -15,72 +16,7 @@ body.dark{
     --button-hover-color: #6d6d6d;
     --button-disabled-color: #a8a8a8;
 }
-
-
-
-.game{
-    position: fixed;
-    height: 88%;
-    width: 90%;
-    border-radius: /*6px*/ 0.5em;
-    margin-left: 2%;
-    margin-right: 1%;
-    /*text-align: center;*/
-    background: var(--sidebar-color);
-}
-
-.game img{
-    height: 400px;
-    margin: auto;
-    padding: 20px;
-    display: block;
-}
-
-.game .gameButton {
-    list-style: none;
-    margin-left: 3%;
-    margin-right: 3%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /*column-gap: 4%;*/
-    row-gap: 4em;
-}
-
-.game .gameButton li{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: var(--transition-04);
-}
-
-.home button{
-    height: 100%;
-    width: 70%;
-    font-size: 30px;
-    font-weight: 500;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 0.5em;
-    color: var(--text-button-color);
-    background-color: var(--button-color);
-    transition: var(--transition-03);
-}
-
-.home button:hover{
-    cursor: pointer;
-    color: var(--text-button-hover-color);
-    background-color: var(--button-hover-color);
-    transition: var(--transition-03);
-}
-
-.home button:disabled{
-    cursor: default;
-    color: var(--text-button-hover-color);
-    background-color: var(--button-disabled-color);
-    transition: var(--transition-03);
-}
+*/
 
 .home button.right:disabled{
     cursor: default;
@@ -96,53 +32,14 @@ body.dark{
     transition: var(--transition-03);
 }
 
-
-
-.modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    background-color: #cccccc38;
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.1);
-    transition: var(--transition-02);
-}
-
-.modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--text-button-color);
-    background-color: #ffffff;
-    box-shadow: 0px 0px 5px gray;
-    padding: 1rem 1.5rem;
-    width: 24rem;
-    border-radius: 0.5rem;
-}
-
-.show-modal {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.0);
-    transition: var(--transition-02);
+main img{
+    flex: 1 1 auto;
+    height: 400px;
+    margin: auto;
+    border-radius: 2rem;
+    padding: 1rem;
 }
 
 #retryBtn {
-    width: 50%;
-    font-size: 20px;
     box-shadow: 0px 0px 5px gray;
-    margin: 0.8rem;
-    background-color: #f1e6ff;
-}
-
-#retryBtn:hover{
-    cursor: pointer;
-    color: var(--sidebar-color);
-    background: var(--primary-color);
-    transition: var(--transition-03);
 }
