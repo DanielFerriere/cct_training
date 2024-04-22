@@ -318,10 +318,11 @@ body.dark .switch::before{
 .home main{
     position: static;
     flex: 1 1 auto;
-    margin: 0 2em 2em 2em;
-    padding: 1.5em;
-    border-radius: 0.5em;
+    margin: 0 2rem 2rem 2rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
     display: flex;
+    flex-direction: column;
     /*text-align: center;*/
     background: var(--sidebar-color);
     transition: var(--transition-01);
@@ -333,7 +334,7 @@ body.dark .switch::before{
     text-align: center;
     text-decoration: none;
     border: none;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     color: var(--text-button-color);
     background-color: var(--button-color);
     transition: var(--transition-03);
@@ -366,8 +367,8 @@ body.dark .switch::before{
 .grid-2x2 {
     flex: 1 1 auto;
     display: grid;
+    gap: 2rem;
     grid-template-columns: 1fr 1fr;
-    /*background-color: blue;*/
 }
 
 .grid-2x2 li {
@@ -378,8 +379,9 @@ body.dark .switch::before{
 }
 
 .grid-2x2 li button {
-    flex: 0 1 auto;
-    width: calc(100% - 1em);
+    flex: 1 1 auto;
+    /*margin: 1em;*/
+    /*width: calc(100% - 1em);*/
 }
 
 
@@ -414,7 +416,7 @@ body.dark .switch::before{
 }
 
 .modal-content button {
-    margin-top: 0.5em;
+    margin-top: 0.5rem;
 }
 
 .show-modal {

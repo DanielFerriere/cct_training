@@ -38,7 +38,7 @@ materialBtn.addEventListener("click", function() {
 
 arrayGamemodeBtn[1][0].addEventListener("click", function(event) {
     event.preventDefault();
-    window.location.href = "kinematic.html";
+    window.location.href = "./page/kinematic_game1.html";
 });
 
 for (let i=0; i<arrayBackBtn.length; i++) {
