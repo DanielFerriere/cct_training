@@ -18,19 +18,20 @@ body.dark{
 }
 */
 
-.home button.right:disabled{
+.home button.right:disabled {
     cursor: default;
     color: var(--text-button-hover-color);
     background-color: #1fe2bb;
     transition: var(--transition-03);
 }
 
-.home button.wrong:disabled{
+.home button.wrong:disabled {
     cursor: default;
     color: var(--text-button-hover-color);
     background-color: #ff8999;
     transition: var(--transition-03);
 }
+
 
 main img{
     flex: 1 1 auto;
@@ -39,6 +40,46 @@ main img{
     border-radius: 2rem;
     padding: 1rem;
 }
+
+form {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    gap : 1rem;
+}
+
+form input {
+    flex: 0 1 auto;
+    height: 4rem;
+    width: 80%;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 0px 0.5rem;
+    background: var(--primary-color-light);
+}
+
+form input.right:disabled {
+    cursor: default;
+    color: var(--text-button-hover-color);
+    background-color: #1fe2bb;
+    transition: var(--transition-03);
+}
+
+form input.wrong:disabled {
+    cursor: default;
+    color: var(--text-button-hover-color);
+    background-color: #ff8999;
+    transition: var(--transition-03);
+}
+
+form button {
+    height: 4rem;
+    width: 20%;
+}
+
 
 #retryBtn {
     box-shadow: 0px 0px 5px gray;
