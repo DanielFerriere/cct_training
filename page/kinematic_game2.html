@@ -1,0 +1,137 @@
+<!-- Coding by Daniel-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCT Training - Cinématique</title>
+
+    <!--======= CSS =======-->
+    <link rel="stylesheet" href="../css/main_style.css">
+    <link rel="stylesheet" href="../css/kinematic_style.css">
+
+    <!-- ====== Boxicons CSS ====== -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="../assets/logo.png" alt="logo"> 
+                </span>
+
+                <div class="text header-text">
+                    <span class="name">CCT Training</span>
+                    <span class="subtitle">Coding by Nolan</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box">
+                    <i class='bx bx-search-alt icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+
+                <ul class="menu-links">
+
+                    <li class="nav-link">
+                        <a href="../index.html" id="dashboardBtn">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-book-bookmark icon'></i>
+                            <span class="text nav-text">Learning</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="../training.html" id="trainingBtn">
+                            <i class='bx bxs-graduation icon'></i>                            
+                            <span class="text nav-text">Training</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">Leaderboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-cog icon' ></i>                            
+                            <span class="text nav-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+
+                <li class="">
+                    <a href="#" id="logoutBtn">
+                        <i class='bx bx-log-out icon' ></i>                            
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class='bx bx-moon icon moon' ></i> 
+                        <i class='bx bx-sun icon sun' ></i>     
+                    </div>                           
+                    <span class="mode-text text">Dark Mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="home">
+        <div class="text">Liaison Cinématique : Trouvez le bon mot</div>
+
+        <main>
+
+            <img id="gameImg" src="../assets/placeholder.png" alt="placeholder">
+
+            <form method="post" autocomplete="off" id="gameForm">
+                <input type="text" id="gameInput" placeholder="Entrez le nom de la liaison">
+                <button type="submit" id="sendBtn">
+                    <i class='bx bx-send' ></i>
+                </button>
+            </form>
+
+        </main>
+
+        <div class="modal">
+            <div class="modal-content">
+              <h2>Modal : game finish</h2>
+              <button id="retryBtn">Retry</button>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="../js/script.js"></script>
+    <script type="module" src="../js/kinematic_game2.js"></script>
+
+</body>
+</html>

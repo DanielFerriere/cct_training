@@ -41,6 +41,11 @@ arrayGamemodeBtn[1][0].addEventListener("click", function(event) {
     window.location.href = "./page/kinematic_game1.html";
 });
 
+arrayGamemodeBtn[1][1].addEventListener("click", function(event) {
+    event.preventDefault();
+    window.location.href = "./page/kinematic_game2.html";
+})
+
 for (let i=0; i<arrayBackBtn.length; i++) {
     arrayBackBtn[i].addEventListener("click", function () {
         modal.classList.remove("show-modal");
