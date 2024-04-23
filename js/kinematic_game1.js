@@ -1,4 +1,4 @@
-import {GameImg2C} from "./game_script.js";
+import {GameImg2Choice} from "./game_script.js";
 
 const button1 = document.getElementById("gameBtn1");
 const button2 = document.getElementById("gameBtn2");
@@ -14,7 +14,7 @@ const retryBtn = document.getElementById("retryBtn");
 
 
 
-var game = new GameImg2C( "../assets/kinematic", gameImg, button1, button2, button3, button4, modal, modalContent, retryBtn);
+var game = new GameImg2Choice( "../assets/kinematic", gameImg, button1, button2, button3, button4, modal, modalContent, retryBtn);
 
 game.begin();
 
