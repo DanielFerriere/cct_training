@@ -323,7 +323,7 @@ body.dark .switch::before{
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
-    /*text-align: center;*/
+    text-align: center;
     background: var(--sidebar-color);
     transition: var(--transition-01);
 }
@@ -354,7 +354,7 @@ body.dark .switch::before{
     transition: var(--transition-03);
 }
 
-.home button img{
+.logo {
     height: 7em;
     margin: auto;
     padding: 20px;
