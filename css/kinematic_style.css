@@ -33,13 +33,38 @@ body.dark{
 }
 
 
-main img{
+
+main img {
     flex: 1 1 auto;
     height: 400px;
     margin: auto;
     border-radius: 2rem;
     padding: 1rem;
 }
+
+main h1 {
+    margin: 0 22rem 1.5rem 22rem;
+    margin-bottom: 1.5rem;
+    font-size: 50px;
+    font-weight: 500;
+    flex: 0 1 auto;
+    border: solid #c5c5c5;
+    border-radius: 1rem;
+    color: var(--text-color);
+}
+
+
+
+.grid-2x2 li button img{
+    height: 7em;
+    margin: auto;
+    padding: 20px;
+    display: block;
+    border: none;
+    border-radius: 2rem;
+}
+
+
 
 form {
     flex: 1 1 auto;
