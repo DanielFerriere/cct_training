@@ -12,7 +12,7 @@ const arrayBackBtn = document.getElementsByClassName("backBtn");
 
 for (let i=0; i<3; i++) {
     arrayGamemodeBtn.push([]);
-    for (let j=0; j<3; j++) {
+    for (let j=0; j<4; j++) {
         arrayGamemodeBtn[i].push(document.getElementById("BtnG"+(i+1)+"M"+(j+1)));
     }
 }
@@ -49,6 +49,11 @@ arrayGamemodeBtn[1][1].addEventListener("click", function(event) {
 arrayGamemodeBtn[1][2].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/kinematic_game3.html";
+})
+
+arrayGamemodeBtn[1][3].addEventListener("click", function(event) {
+    event.preventDefault();
+    window.location.href = "./page/kinematic_game4.html";
 })
 
 for (let i=0; i<arrayBackBtn.length; i++) {
