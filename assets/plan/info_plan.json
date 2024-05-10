@@ -1,0 +1,436 @@
+{
+    "fr" : 
+    [
+        { 
+            "file_blank": "serre_joint_blank.webp",
+            "file_color": "serre_joint_color.webp",
+            "width": 2210,
+            "height": 2704,
+            "piece": 
+            [
+                { "num": 1, "name": "", "material": "" },
+                { "num": 2, "name": "", "material": "" },
+                { "num": 3, "name": "", "material": "alliage de fer" },
+                { "num": 4, "name": "", "material": "" },
+                { "num": 5, "name": "", "material": "alliage de fer" },
+                { "num": 6, "name": "", "material": "" },
+                { "num": 7, "name": "", "material": "" },
+                { "num": 8, "name": "goupille élastique", "material": "" }
+            ],
+            "kinematic": 
+            {
+                "group":
+                [
+                    { "name": "A", "color": "marron" },
+                    { "name": "B", "color": "bleu" },
+                    { "name": "C", "color": "jaune" },
+                    { "name": "D", "color": "vert" },
+                    { "name": "E", "color": "rouge" }
+                ],
+                "link":
+                [
+                    { "name": "pivot glissant x", "relate_group": ["A", "B"], "bound": [[561, 1991], [1960, 2504]] },
+                    { "name": "hélicoïdale y", "relate_group": ["B", "C"], "bound": [[883, 1330], [2015, 2352]] },
+                    { "name": "hélicoïdale y", "relate_group": ["B", "D"], "bound": [[1558, 1211], [2015, 2034]] },
+                    { "name": "glissière y", "relate_group": ["C", "D"], "bound": [[866, 1211], [2015, 2034]] },
+                    { "name": "glissière y", "relate_group": ["C", "E"], "bound": [[197, 732], [1312, 2458]] }
+                ]
+            },
+            "shape":
+            [
+                { "shape_name": "forme bidon", "bound": [[1,2], [3,4]] }
+            ]
+        },
+
+        { 
+            "file_blank": "cintreuse_blank.webp",
+            "file_color": "cintreuse_color.webp",
+            "width": 4963,
+            "height": 3509,
+            "piece": 
+            [
+                { "num": 1, "name": "corps", "material": "alliage léger" },
+                { "num": 2, "name": "coulisseau", "material": "alliage léger" },
+                { "num": 3, "name": "axe", "material": "alliage de fer" },
+                { "num": 4, "name": "galet", "material": "alliage léger" },
+                { "num": 5, "name": "empreinte", "material": "" },
+                { "num": 6, "name": "vis de manœuvre", "material": "" },
+                { "num": 7, "name": "écrou a croisillion M12", "material": "" },
+                { "num": 8, "name": "goupille élastique épaisse 4-25", "material": "" },
+                { "num": 9, "name": "grain", "material": "" },
+                { "num": 10, "name": "vis CHC a téton court M6-8", "material": "" },
+                { "num": 11, "name": "goupille élastique épaisse 3-15", "material": "" },
+                { "num": 12, "name": "embase", "material": "alliage de fer" },
+                { "num": 13, "name": "vis", "material": "" },
+                { "num": 14, "name": "goupille élastique épaisse", "material": "" },
+                { "num": 15, "name": "doigt d'entrainement", "material": "alliage de fer" },
+                { "num": 16, "name": "vis-axe", "material": "" },
+                { "num": 17, "name": "levier de manœuvre", "material": "" }
+            ],
+            "kinematic": 
+            {
+                "group":
+                [
+                    { "name": "A", "color": "rouge" },
+                    { "name": "B", "color": "jaune" },
+                    { "name": "C", "color": "violet" },
+                    { "name": "D", "color": "bleu" },
+                    { "name": "E", "color": "vert" }
+                ],
+                "link":
+                [
+                    { "name": "pivot y", "relate_group": ["A", "B"], "bound": [[434, 369], [1494, 3357]] },
+                    { "name": "glissière x", "relate_group": ["A", "C"], "bound": [[1371, 358], [4585, 1463]] },
+                    { "name": "hélicoïdale x", "relate_group": ["A", "D"], "bound": [[2187, 534], [2877, 1216]] },
+                    { "name": "pivot z", "relate_group": ["B", "E"], "bound": [[1082, 432], [1637, 2926]] },
+                    { "name": "ponctuelle x", "relate_group": ["C", "D"], "bound": [[1701, 557], [2181, 1043]] }
+                ]
+            },
+            "shape":
+            [
+                { "shape_name": "forme bidon", "bound": [[1,2], [3,4]] }
+            ]
+        },
+
+        { 
+            "file_blank": "bride_hydraulique_blank.webp",
+            "file_color": "bride_hydraulique_color.webp",
+            "width": 4876,
+            "height": 3447,
+            "piece": 
+            [
+                { "num": 1, "name": "corps", "material": "alliage de fer" },
+                { "num": 2, "name": "axe", "material": "alliage de fer" },
+                { "num": 3, "name": "bras", "material": "alliage de fer" },
+                { "num": 4, "name": "axe", "material": "" },
+                { "num": 5, "name": "rondelle élastique", "material": "" },
+                { "num": 6, "name": "vis de réglage", "material": "" },
+                { "num": 7, "name": "écrou", "material": "" },
+                { "num": 8, "name": "écrou", "material": "alliage de fer" },
+                { "num": 9, "name": "rondelle", "material": "alliage de fer" },
+                { "num": 10, "name": "pion d'indexage", "material": "" },
+                { "num": 11, "name": "ressort", "material": "" },
+                { "num": 12, "name": "rondelle ressort", "material": "" },
+                { "num": 13, "name": "frein de filet", "material": "" },
+                { "num": 14, "name": "grain", "material": "" },
+                { "num": 15, "name": "piston", "material": "" },
+                { "num": 16, "name": "vis CHC", "material": "" },
+                { "num": 17, "name": "vis", "material": "" },
+                { "num": 18, "name": "corps du vérin", "material": "alliage de fer" },
+                { "num": 19, "name": "raccord hydrolique", "material": "" },
+                { "num": 20, "name": "raccord hydrolique", "material": "" }
+            ],
+            "kinematic": 
+            {
+                "group":
+                [
+                    { "name": "A", "color": "bleu" },
+                    { "name": "B", "color": "vert" },
+                    { "name": "C", "color": "violet" },
+                    { "name": "D", "color": "rouge" },
+                    { "name": "E", "color": "rose" }
+                ],
+                "link":
+                [
+                    { "name": "pivot y", "relate_group": ["A", "B"], "bound": [[3648, 75], [4805, 1539]] },
+                    { "name": "pivot glissant y", "relate_group": ["A", "C"], "bound": [[1033, 330], [1594, 872]] },
+                    { "name": "pivot x", "relate_group": ["B", "D"], "bound": [[1693, 71], [4218, 2889]] },
+                    { "name": "ponctuelle y", "relate_group": ["C", "D"], "bound": [[1033, 330], [1594, 872]] },
+                    { "name": "hélicoïdale y", "relate_group": ["D", "E"], "bound": [[2940, 121], [3347, 2648]] }
+                ]
+            },
+            "shape":
+            [
+                { "shape_name": "forme bidon", "bound": [[1,2], [3,4]] }
+            ]
+        },
+
+        { 
+            "file_blank": "pompe_prise_br_blank.webp",
+            "file_color": "pompe_prise_br_color.webp",
+            "width": 4966,
+            "height": 3511,
+            "piece": 
+            [
+                { "num": 1, "name": "carter", "material": "alliage de fer" },
+                { "num": 2, "name": "ressort", "material": "" },
+                { "num": 3, "name": "doigt d'arrêt", "material": "" },
+                { "num": 4, "name": "axe de commande", "material": "alliage de fer" },
+                { "num": 5, "name": "anneau élastique pour arbre", "material": "" },
+                { "num": 6, "name": "baladeur", "material": "alliage de fer" },
+                { "num": 7, "name": "coussinet", "material": "alliage de cuivre" },
+                { "num": 8, "name": "joint torique", "material": "plastique/polymère" },
+                { "num": 9, "name": "vis HC-M16-20", "material": "alliage de fer" },
+                { "num": 10, "name": "bouchon", "material": "alliage de fer" },
+                { "num": 11, "name": "joint circulaire", "material": "" },
+                { "num": 12, "name": "joint circulaire", "material": "" },
+                { "num": 13, "name": "corps de pompe", "material": "alliage de fer" },
+                { "num": 14, "name": "vis CHC m14-40-34", "material": "" },
+                { "num": 15, "name": "bouchon porte-clapet", "material": "alliage de fer" },
+                { "num": 16, "name": "ressort", "material": "" },
+                { "num": 17, "name": "clapet anti-retour", "material": "alliage de fer" },
+                { "num": 18, "name": "joint circulaire", "material": "" },
+                { "num": 19, "name": "ressort", "material": "" },
+                { "num": 20, "name": "douille", "material": "alliage de cuivre" },
+                { "num": 21, "name": "piston", "material": "alliage de fer" },
+                { "num": 22, "name": "patin", "material": "alliage de cuivre" },
+                { "num": 23, "name": "arbre porte plateau", "material": "alliage de fer" },
+                { "num": 24, "name": "vis de purge", "material": "" },
+                { "num": 25, "name": "roulement 45 KB 03", "material": "" },
+                { "num": 26, "name": "joint à lèvre", "material": "" },
+                { "num": 27, "name": "joint à lèvre", "material": "" },
+                { "num": 28, "name": "joint circulaire", "material": "" },
+                { "num": 29, "name": "bouchon de vidange", "material": "" },
+                { "num": 30, "name": "goupille élastique épaisse", "material": "" },
+                { "num": 31, "name": "pignon", "material": "alliage de fer" },
+                { "num": 32, "name": "couvercle", "material": "alliage de fer" },
+                { "num": 33, "name": "roulement 45 RJ 02", "material": "" },
+                { "num": 34, "name": "vis CHC M14 ajustée", "material": "" },
+                { "num": 35, "name": "vis CHC M5-12-10", "material": "" },
+                { "num": 36, "name": "contacteur", "material": "" },
+                { "num": 37, "name": "joint circulaire", "material": "" }
+            ],
+            "kinematic": 
+            {
+                "group":
+                [
+                    { "name": "A", "color": "jaune" },
+                    { "name": "B", "color": "rouge" },
+                    { "name": "C", "color": "bleu" },
+                    { "name": "D", "color": "vert" },
+                    { "name": "E", "color": "violet" },
+                    { "name": "F", "color": "rose" },
+                    { "name": "G", "color": "marron" }
+                ],
+                "link":
+                [
+                    { "name": "glissière x", "relate_group": ["A", "B"], "bound": [[2008, 565], [3559, 1153]] },
+                    { "name": "linéaire rectiligne x/appui plan x", "relate_group": ["A", "D"], "bound": [[4270, 1686], [4670, 2086]] },
+                    { "name": "pivot glissant x", "relate_group": ["A", "E"], "bound": [[3590, 1720], [4393, 2086]] },
+                    { "name": "pivot x", "relate_group": ["A", "G"], "bound": [[2205, 1228], [3715, 2130]] },
+                    { "name": "pivot x", "relate_group": ["B", "C"], "bound": [[2247, 280], [3375, 1402]] },
+                    { "name": "engrenage", "relate_group": ["C", "G"], "bound": [[2190, 948], [3014, 1547]] },
+                    { "name": "rotule", "relate_group": ["E", "F"], "bound": [[3457, 1694], [3887, 2124]] },
+                    { "name": "appui plan h", "relate_group": ["F", "G"], "bound": [[3397, 1694], [3827, 2124]] }
+                ]
+            },
+            "shape":
+            [
+                { "shape_name": "forme bidon", "bound": [[1,2], [3,4]] }
+            ]
+        },
+
+        { 
+            "file_blank": "moteur_combustion_interne_blank.webp",
+            "file_color": "moteur_combustion_interne_color.webp",
+            "width": 3511,
+            "height": 4966,
+            "piece": 
+            [
+                { "num": 0, "name": "carter moteur", "material": "alliage léger" },
+                { "num": 1, "name": "ressort", "material": "" },
+                { "num": 2, "name": "soupape", "material": "" },
+                { "num": 3, "name": "culbuteur", "material": "" },
+                { "num": 4, "name": "tige de culbuteur", "material": "alliage de fer" },
+                { "num": 5, "name": "poussoir", "material": "alliage de fer" },
+                { "num": 6, "name": "arbre à came", "material": "alliage de fer" },
+                { "num": 7, "name": "guide", "material": "alliage de fer" },
+                { "num": 8, "name": "siège de la soupape 2", "material": "alliage de fer" },
+                { "num": 9, "name": "piston", "material": "alliage léger" },
+                { "num": 10, "name": "bielle", "material": "" },
+                { "num": 11, "name": "vilebrequin", "material": "alliage de fer" },
+                { "num": 12, "name": "arbre de culbuteur", "material": "" },
+                { "num": 13, "name": "ressort", "material": "" },
+                { "num": 14, "name": "coussinet de culbuteur", "material": "alliage de fer" },
+                { "num": 15, "name": "écrou H", "material": "" },
+                { "num": 16, "name": "vis sans tête", "material": "" },
+                { "num": 17, "name": "chemise", "material": "alliage de fer" },
+                { "num": 18, "name": "segment coupe feu", "material": "" },
+                { "num": 19, "name": "segment d'étanchéité", "material": "" },
+                { "num": 20, "name": "segment recleur", "material": "" },
+                { "num": 21, "name": "culasse", "material": "alliage léger" },
+                { "num": 22, "name": "coussinet de pied de bielle", "material": "alliage de fer" },
+                { "num": 23, "name": "coussinet de tête de bielle", "material": "alliage de fer" }
+            ],
+            "kinematic": 
+            {
+                "group":
+                [
+                    { "name": "A", "color": "blanc" },
+                    { "name": "B", "color": "rose" },
+                    { "name": "C", "color": "bleu" },
+                    { "name": "D", "color": "violet" },
+                    { "name": "E", "color": "jaune" },
+                    { "name": "F", "color": "orange" },
+                    { "name": "G", "color": "vert" },
+                    { "name": "H", "color": "rouge" },
+                    { "name": "I", "color": "marron" }
+                ],
+                "link":
+                [
+                    { "name": "pivot glissant i", "relate_group": ["A", "B"], "bound": [[590, 651], [1553, 1934]] },
+                    { "name": "pivot z", "relate_group": ["A", "C"], "bound": [[673, 145], [1620, 894]] },
+                    { "name": "pivot glissant j", "relate_group": ["A", "E"], "bound": [[3590, 1720], [4393, 2086]] },
+                    { "name": "pivot z", "relate_group": ["A", "F"], "bound": [[1838, 1309], [2424, 2058]] },
+                    { "name": "pivot glissant y", "relate_group": ["A", "G"], "bound": [[974, 1643], [2078, 3629]] },
+                    { "name": "pivot z", "relate_group": ["A", "I"], "bound": [[674, 3277], [2475, 4965]] },
+                    { "name": "ponctuelle i", "relate_group": ["B", "C"], "bound": [[589, 556], [989, 956]] },
+                    { "name": "rotule", "relate_group": ["C", "D"], "bound": [[1233, 254], [1633, 654]] },
+                    { "name": "rotule", "relate_group": ["D", "E"], "bound": [[1829, 1286], [2296, 1811]] },
+                    { "name": "ponctuelle j/linéaire rectiligne j", "relate_group": ["E", "F"], "bound": [[1964, 1737], [2586, 2360]] },
+                    { "name": "pivot z", "relate_group": ["G", "H"], "bound": [[1062, 2675], [1992, 3605]] },
+                    { "name": "pivot z", "relate_group": ["H", "I"], "bound": [[1305, 4154], [2235, 4965]] }
+                ]
+            },
+            "shape":
+            [
+                { "shape_name": "forme bidon", "bound": [[1,2], [3,4]] }
+            ]
+        },
+
+        { 
+            "file_blank": "ecarteur_hydraulique_blank.webp",
+            "file_color": "ecarteur_hydraulique_color.webp",
+            "width": 4961,
+            "height": 3508,
+            "piece": 
+            [
+                { "num": 1, "name": "mors fixe", "material": "alliage de fer" },
+                { "num": 2, "name": "mors mobile", "material": "alliage de fer" },
+                { "num": 3, "name": "piston", "material": "alliage de fer" },
+                { "num": 4, "name": "olive", "material": "" },
+                { "num": 5, "name": "tige fileté", "material": "alliage de fer" },
+                { "num": 6, "name": "goupille élastique", "material": "" },
+                { "num": 7, "name": "écrou H-M12", "material": "" },
+                { "num": 8, "name": "joint 4 lobes", "material": "" },
+                { "num": 9, "name": "raccord", "material": "alliage de fer" },
+                { "num": 10, "name": "ressort", "material": "" },
+                { "num": 11, "name": "jonc", "material": "alliage de fer" },
+                { "num": 12, "name": "goupille élastique", "material": "" }
+            ],
+            "kinematic": 
+            {
+                "group":
+                [
+                    { "name": "A", "color": "bleu" },
+                    { "name": "B", "color": "jaune" },
+                    { "name": "C", "color": "rouge" },
+                    { "name": "D", "color": "vert" }
+                ],
+                "link":
+                [
+                    { "name": "pivot y", "relate_group": ["A", "B"], "bound": [[52, 1399], [1132, 2479]] },
+                    { "name": "pivot glissant z", "relate_group": ["A", "C"], "bound": [[2508, 556], [3108, 1156]] },
+                    { "name": "rotule", "relate_group": ["B", "D"], "bound": [[2668, 482], [2968, 782]] },
+                    { "name": "rotule", "relate_group": ["C", "D"], "bound": [[2668, 683], [2968, 983]] }
+                ]
+            },
+            "shape":
+            [
+                { "shape_name": "forme bidon", "bound": [[1,2], [3,4]] }
+            ]
+        },
+
+        { 
+            "file_blank": "marqueur_pieces_blank.webp",
+            "file_color": "marqueur_pieces_color.webp",
+            "width": 2388,
+            "height": 2904,
+            "piece": 
+            [
+                { "num": 1, "name": "marteau", "material": "alliage de fer" },
+                { "num": 2, "name": "porte-chiffres", "material": "alliage de fer" },
+                { "num": 3, "name": "ressort", "material": "" },
+                { "num": 4, "name": "ressort", "material": "" },
+                { "num": 5, "name": "bâti", "material": "alliage de fer" },
+                { "num": 6, "name": "carter", "material": "alliage de fer" },
+                { "num": 7, "name": "entretoise", "material": "alliage de fer" },
+                { "num": 8, "name": "came", "material": "alliage de fer" },
+                { "num": 9, "name": "doigt", "material": "" },
+                { "num": 10, "name": "pièce à marquer", "material": "alliage de fer" },
+                { "num": 11, "name": "rondelle", "material": "alliage de fer" },
+                { "num": 12, "name": "écrou", "material": "" },
+                { "num": 13, "name": "coussinet", "material": "alliage de cuivre" },
+                { "num": 14, "name": "coussinet", "material": "alliage de cuivre" },
+                { "num": 15, "name": "coussinet", "material": "alliage de cuivre" },
+                { "num": 16, "name": "anneau élastique", "material": "alliage de fer" },
+                { "num": 17, "name": "butée", "material": "alliage de fer" },
+                { "num": 18, "name": "vis", "material": "" },
+                { "num": 19, "name": "porte came", "material": "alliage de fer" },
+                { "num": 20, "name": "arbre moteur", "material": "" },
+                { "num": 21, "name": "coussinet", "material": "alliage de cuivre" }
+            ],
+            "kinematic": 
+            {
+                "group":
+                [
+                    { "name": "A", "color": "vert" },
+                    { "name": "B", "color": "orange" },
+                    { "name": "C", "color": "rose" },
+                    { "name": "D", "color": "bleu" }
+                ],
+                "link":
+                [
+                    { "name": "appui plan y", "relate_group": ["A", "B"], "bound": [[76, 1495], [2308, 2446]] },
+                    { "name": "glissière y", "relate_group": ["A", "C"], "bound": [[185, 637], [791, 1852]] },
+                    { "name": "ponctuelle y", "relate_group": ["A", "D"], "bound": [[598, 640], [2320, 1498]] },
+                    { "name": "glissière y", "relate_group": ["B", "C"], "bound": [[218, 1708], [768, 2348]] },
+                    { "name": "pivot x", "relate_group": ["C", "D"], "bound": [[649, 856], [1707, 1480]] }
+                ]
+            },
+            "shape":
+            [
+                { "shape_name": "forme bidon", "bound": [[1,2], [3,4]] }
+            ]
+        },
+
+        { 
+            "file_blank": "element_ablocage_blank.webp",
+            "file_color": "element_ablocage_color.webp",
+            "width": 6784,
+            "height": 4801,
+            "piece": 
+            [
+                { "num": 1, "name": "corps", "material": "alliage de fer" },
+                { "num": 2, "name": "basculeur", "material": "alliage de fer" },
+                { "num": 3, "name": "vis", "material": "" },
+                { "num": 4, "name": "poussoir", "material": "alliage de fer" },
+                { "num": 5, "name": "plaque", "material": "alliage de fer" },
+                { "num": 6, "name": "bague", "material": "alliage de fer" },
+                { "num": 7, "name": "axe", "material": "alliage de fer" },
+                { "num": 8, "name": "lardon", "material": "" },
+                { "num": 9, "name": "bille", "material": "" },
+                { "num": 10, "name": "goupille", "material": "" },
+                { "num": 11, "name": "vis CHC", "material": "" },
+                { "num": 12, "name": "vis CHC", "material": "" }
+            ],
+            "kinematic": 
+            {
+                "group":
+                [
+                    { "name": "A", "color": "rose" },
+                    { "name": "B", "color": "bleu" },
+                    { "name": "C", "color": "rouge" },
+                    { "name": "D", "color": "vert" },
+                    { "name": "E", "color": "jaune" }
+                ],
+                "link":
+                [
+                    { "name": "appui plan x", "relate_group": ["A", "B"], "bound": [[3575, 1019], [5235, 2192]] },
+                    { "name": "appui plan z", "relate_group": ["A", "E"], "bound": [[3605, 1190], [5178, 1689]] },
+                    { "name": "pivot y", "relate_group": ["B", "C"], "bound": [[620, 333], [2908, 1161]] },
+                    { "name": "glissière y", "relate_group": ["B", "D"], "bound": [[52, 333], [2281, 1248]] },
+                    { "name": "pivot x", "relate_group": ["B", "E"], "bound": [[510, 1078], [5053, 1967]] },
+                    { "name": "hélicoïdale y", "relate_group": ["C", "D"], "bound": [[43, 343], [2881, 1232]] }
+                ]
+            },
+            "shape":
+            [
+                { "shape_name": "forme bidon", "bound": [[1,2], [3,4]] }
+            ]
+        }
+    ],
+
+    "en" : 
+    []
+}
