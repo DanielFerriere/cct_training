@@ -1,3 +1,38 @@
+import {GameKinematicPlan} from "./game_script.js";
+
+const guessText = document.getElementById("guessText");
+const gameDiv = document.querySelector(".plan-div");
+const gameForm = document.getElementById("gameForm");
+const gameInput = document.getElementById("gameInput");
+const sendBtn = document.getElementById("sendBtn");
+
+const modal = document.querySelector(".modal");
+const modalContent = document.querySelector(".modal-content");
+const retryBtn = document.getElementById("retryBtn");
+
+
+
+
+
+var game = new GameKinematicPlan( "../assets/plan", guessText, gameDiv, gameForm, gameInput, sendBtn, modal, modalContent, retryBtn);
+
+game.begin();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 //const img = document.getElementById("gameImg");
 //const htmlsvg = document.querySelector("svg");
 
@@ -5,8 +40,8 @@
 
 //var width = 500;
 //var height = 500;
-var imgheight = /*180*/4966 ;
-var imgwidth = /*180*/3511;
+var imgheight = 4966 ;
+var imgwidth = 3511;
 
 const svg = d3.select(".plan-div").append("svg")
     .attr("width", "100%")
@@ -19,18 +54,21 @@ var width = htmlsvg.clientWidth;
 
 const g = svg.append("g");
 
-const img = g.append("image")
-    .attr("href", "../assets/test_plan.jpg")
+const img = g.append("image");
+
+    
+img.attr("href", "../assets/test_plan.jpg")
     .attr("height", imgheight)
     .attr("width", imgwidth);
 
-const zoom = d3.zoom()
-    .scaleExtent([Math.min(height/imgheight, width/imgwidth), 8])
-    //.translateExtent([[0,0], [imgheight, imgwidth]])
-    .on("zoom", zoomed);
+const zoom = d3.zoom();
+    
 
 svg.call(zoom);
 
+zoom.scaleExtent([Math.min(height/imgheight, width/imgwidth), 8])
+    //.translateExtent([[0,0], [imgheight, imgwidth]])
+    .on("zoom", zoomed);
 
 
 
@@ -40,13 +78,6 @@ function clicked() {
     let y0 = 1000;
     let x1 = 900;
     let y1 = 1300;
-
-    /*g.append("rect")
-        .attr("x", x0)
-        .attr("y", y0)
-        .attr("width", x1-x0)
-        .attr("height", y1-y0)
-        .attr("fill", "green");*/
 
     svg.transition().duration(750).call(
         zoom.transform,
@@ -65,3 +96,4 @@ function zoomed(event) {
 
 setTimeout(clicked, 2000);
 //clicked();
+*/
