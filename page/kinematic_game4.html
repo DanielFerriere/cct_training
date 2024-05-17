@@ -17,9 +17,8 @@
     <!--D3js-->
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
-    <!-- utils custom script -->
-    <script src="../js/utils_script.js" type="module"></script>
-    <script src="../js/game_script.js" type="module"></script>
+    <!-- ====== Custom Script ====== -->
+    <script src="../js/umd_game_script_module.js"></script>
 
 </head>
 <body>
@@ -140,14 +139,31 @@
         <div class="modal">
             <div class="modal-content">
               <h2>Modal : game finish</h2>
-              <button id="retryBtn">Retry</button>
+              <button id="retryBtn">Réessayer</button>
             </div>
         </div>
 
     </section>
 
     <script src="../js/script.js"></script>
-    <script type="module" src="../js/kinematic_game4.js"></script>
+    <!-- <script type="module" src="../js/kinematic_game4.js"></script> -->
+    <script>
+        //import {GameKinematicPlan} from "./game_script.js";
+
+        const guessText = document.getElementById("guessText");
+        const gameDiv = document.querySelector(".plan-div");
+        const gameForm = document.getElementById("gameForm");
+        const gameInput = document.getElementById("gameInput");
+        const sendBtn = document.getElementById("sendBtn");
+
+        const modal = document.querySelector(".modal");
+        const modalContent = document.querySelector(".modal-content");
+        const retryBtn = document.getElementById("retryBtn");
+
+        var game = new gamemode.GameKinematicPlan( "../assets/plan", guessText, gameDiv, gameForm, gameInput, sendBtn, modal, modalContent, retryBtn);
+
+        game.begin();
+    </script>
 
 </body>
 </html>
