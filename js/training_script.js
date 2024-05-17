@@ -36,6 +36,24 @@ materialBtn.addEventListener("click", function() {
 });
 
 
+
+
+arrayGamemodeBtn[0][0].addEventListener("click", function(event) {
+    event.preventDefault();
+    window.location.href = "./page/shape_game1.html"
+});
+
+arrayGamemodeBtn[0][1].addEventListener("click", function(event) {
+    event.preventDefault();
+    window.location.href = "./page/shape_game2.html";
+})
+
+arrayGamemodeBtn[0][2].addEventListener("click", function(event) {
+    event.preventDefault();
+    window.location.href = "./page/shape_game3.html";
+});
+
+
 arrayGamemodeBtn[1][0].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/kinematic_game1.html";
@@ -55,6 +73,13 @@ arrayGamemodeBtn[1][3].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/kinematic_game4.html";
 })
+
+
+
+
+
+
+
 
 for (let i=0; i<arrayBackBtn.length; i++) {
     arrayBackBtn[i].addEventListener("click", function () {
