@@ -1,0 +1,30 @@
+{
+    "name_file_fr" : [
+        { "name": "arbre", "file": "arbre.svg" },
+        { "name": "bride", "file": "bride.svg" },
+        { "name": "chanfrein", "file": "chanfrein_arbre.svg" },
+        { "name": "collet", "file": "collet.svg" },
+        { "name": "embase", "file": "embase.svg" },
+        { "name": "encoche", "file": "enoche.svg" },
+        { "name": "entaille", "file": "entaille.svg" },
+        { "name": "epaulement", "file": "epaulement.svg" },
+        { "name": "fraisure", "file": "fraisure.svg" },
+        { "name": "gorge", "file": "gorge.svg" },
+        { "name": "lamage", "file": "lamage.svg" },
+        { "name": "languette", "file": "languette.svg" },
+        { "name": "lumière", "file": "lumiere.svg" },
+        { "name": "méplat", "file": "meplat.svg" },
+        { "name": "mortaise", "file": "mortaise.svg" },
+        { "name": "queue d'aronde contenant", "file": "queue_aronde_contenant.svg" },
+        { "name": "queue d'aronde contenu", "file": "queue_aronde_contenu.svg" },
+        { "name": "raccord", "file": "raccord.svg" },
+        { "name": "rainure", "file": "rainure.svg" },
+        { "name": "saignées", "file": "saignees.svg" },
+        { "name": "tenon", "file": "tenon.svg" },
+        { "name": "trou borgne", "file": "trou_borgne.svg" },
+        { "name": "trou débouchant", "file": "trou_debouchant.svg" },
+        { "name": "trou oblong", "file": "trou_oblong.svg" }
+    ],
+
+    "name_file_en" : []
+}
