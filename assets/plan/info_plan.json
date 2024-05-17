@@ -134,7 +134,7 @@
                 [
                     { "name": "pivot y", "relate_group": ["A", "B"], "bound": [[3648, 75], [4805, 1539]] },
                     { "name": "pivot glissant y", "relate_group": ["A", "C"], "bound": [[1033, 330], [1594, 872]] },
-                    { "name": "pivot x", "relate_group": ["B", "D"], "bound": [[1693, 71], [4218, 2889]] },
+                    { "name": "pivot z", "relate_group": ["B", "D"], "bound": [[1693, 71], [4218, 2889]] },
                     { "name": "ponctuelle y", "relate_group": ["C", "D"], "bound": [[1033, 330], [1594, 872]] },
                     { "name": "hélicoïdale y", "relate_group": ["D", "E"], "bound": [[2940, 121], [3347, 2648]] }
                 ]

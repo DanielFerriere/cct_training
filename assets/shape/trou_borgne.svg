@@ -1,0 +1,17 @@
+<svg width="950" height="950" viewBox="0 0 950 950" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="950" height="950" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M244.038 775.285V775.776H706.954V174H244.038V775.285Z" fill="#B3B3B3" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M346.811 498.19L346.208 175.029H604.823L604.596 497.661L476.037 575.415H474.955L346.811 498.19Z" fill="#D9D9D9" stroke="black"/>
+<mask id="mask0_2006_227" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="244" y="174" width="463" height="602">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M346.312 498.472L474.816 575.915H476.176L605.096 497.943L605.323 174.529L706.992 174.605V775.436H244V174.605L345.707 174.529L346.312 498.472Z" fill="#E1E1E1"/>
+</mask>
+<g mask="url(#mask0_2006_227)">
+<line x1="159.823" y1="841.143" x2="866.93" y2="134.037" stroke="black" stroke-width="0.5"/>
+<line x1="159.823" y1="677.037" x2="866.93" y2="-30.07" stroke="black" stroke-width="0.5"/>
+<line x1="159.823" y1="512.93" x2="866.93" y2="-194.177" stroke="black" stroke-width="0.5"/>
+<line x1="159.823" y1="348.833" x2="866.93" y2="-358.274" stroke="black" stroke-width="0.5"/>
+<line x1="159.823" y1="1333.46" x2="866.93" y2="626.357" stroke="black" stroke-width="0.5"/>
+<line x1="159.823" y1="1169.36" x2="866.93" y2="462.25" stroke="black" stroke-width="0.5"/>
+<line x1="159.823" y1="1005.25" x2="866.93" y2="298.143" stroke="black" stroke-width="0.5"/>
+</g>
+</svg>
