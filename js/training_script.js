@@ -46,7 +46,7 @@ arrayGamemodeBtn[0][0].addEventListener("click", function(event) {
 arrayGamemodeBtn[0][1].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/shape_game2.html";
-})
+});
 
 arrayGamemodeBtn[0][2].addEventListener("click", function(event) {
     event.preventDefault();
@@ -62,17 +62,33 @@ arrayGamemodeBtn[1][0].addEventListener("click", function(event) {
 arrayGamemodeBtn[1][1].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/kinematic_game2.html";
-})
+});
 
 arrayGamemodeBtn[1][2].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/kinematic_game3.html";
-})
+});
 
 arrayGamemodeBtn[1][3].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/kinematic_game4.html";
-})
+});
+
+
+arrayGamemodeBtn[2][0].addEventListener("click", function(event) {
+    event.preventDefault();
+    window.location.href = "./page/material_game1.html"
+});
+
+arrayGamemodeBtn[2][1].addEventListener("click", function(event) {
+    event.preventDefault();
+    window.location.href = "./page/material_game2.html";
+});
+
+arrayGamemodeBtn[2][2].addEventListener("click", function(event) {
+    event.preventDefault();
+    window.location.href = "./page/material_game3.html";
+});
 
 
 
