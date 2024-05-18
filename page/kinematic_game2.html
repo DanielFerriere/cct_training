@@ -9,10 +9,13 @@
 
     <!--======= CSS =======-->
     <link rel="stylesheet" href="../css/main_style.css">
-    <link rel="stylesheet" href="../css/kinematic_style.css">
+    <link rel="stylesheet" href="../css/game_style.css">
 
     <!-- ====== Boxicons CSS ====== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- ====== Custom Script ====== -->
+    <script src="../js/umd_game_script_module.js"></script>
 
 </head>
 <body>
@@ -131,7 +134,31 @@
     </section>
 
     <script src="../js/script.js"></script>
-    <script type="module" src="../js/kinematic_game2.js"></script>
+    <script>
+
+        const gameImg = document.getElementById("gameImg");
+        const gameForm = document.getElementById("gameForm");
+        const gameInput = document.getElementById("gameInput");
+        const sendBtn = document.getElementById("sendBtn");
+
+        const modal = document.querySelector(".modal");
+        const modalContent = document.querySelector(".modal-content");
+        const retryBtn = document.getElementById("retryBtn");
+
+        var game = new gamemode.GameImg2Word(
+            "../assets/kinematic",
+            gameImg,
+            gameForm,
+            gameInput,
+            sendBtn,
+            modal,
+            modalContent,
+            retryBtn
+        );
+
+        game.begin();
+
+    </script>
 
 </body>
 </html>
