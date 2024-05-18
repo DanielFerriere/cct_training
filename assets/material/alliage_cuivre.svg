@@ -1,0 +1,20 @@
+<svg width="450" height="450" viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="450" height="450" fill="white"/>
+<rect x="60" y="130" width="330" height="190" stroke="black" stroke-width="10"/>
+<mask id="mask0_2001_3" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="55" y="125" width="340" height="200">
+<rect x="55" y="125" width="340" height="200" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_2001_3)">
+<line x1="202.201" y1="323.264" x2="395.201" y2="123.264" stroke="black" stroke-width="5"/>
+<line x1="250.201" y1="323.264" x2="443.201" y2="123.264" stroke="black" stroke-width="5" stroke-dasharray="40 20"/>
+<line x1="298.201" y1="323.264" x2="491.201" y2="123.264" stroke="black" stroke-width="5"/>
+<line x1="346.201" y1="323.264" x2="539.201" y2="123.264" stroke="black" stroke-width="5" stroke-dasharray="40 20"/>
+<line x1="394.201" y1="323.264" x2="587.201" y2="123.264" stroke="black" stroke-width="5"/>
+<line x1="10.201" y1="323.264" x2="203.201" y2="123.264" stroke="black" stroke-width="5"/>
+<line x1="58.201" y1="323.264" x2="251.201" y2="123.264" stroke="black" stroke-width="5" stroke-dasharray="40 20"/>
+<line x1="106.201" y1="323.264" x2="299.201" y2="123.264" stroke="black" stroke-width="5"/>
+<line x1="154.201" y1="323.264" x2="347.201" y2="123.264" stroke="black" stroke-width="5" stroke-dasharray="40 20"/>
+<line x1="-85.799" y1="323.264" x2="107.201" y2="123.264" stroke="black" stroke-width="5"/>
+<line x1="-37.799" y1="323.264" x2="155.201" y2="123.264" stroke="black" stroke-width="5" stroke-dasharray="40 20"/>
+</g>
+</svg>
