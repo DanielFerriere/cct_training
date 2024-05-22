@@ -1,0 +1,4 @@
+Objectif;Bug;Résolution
+réduire la taille des fichiers java script en créant un fichier principal contenant le script répétitif et l'importer dans les autre fichier javascript ; Les événement de click des pages autre que index.html ne fonctionne pas ; erreur d'écriture,le fichier script était importer à la place du fichier script.js
+faire un beau menu avec différente section ; la section pour le button switch du mode clair/sombre touche le bas de la page ; aucune pour l'instant
+faire un beau menu se déroulant sur la largeur ; quand le menu n'est pas dérouler le lien dans autre page est tout de même clicable malgré qu'il n'y a rien ; réduire la taille du texte à 0px quand le menu est fermé
