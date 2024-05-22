@@ -1,0 +1,12 @@
+{
+    "name_file_fr" : [
+        { "name": "alliage de fer", "file": "alliage_fer.svg" },
+        { "name": "alliage de cuivre", "file": "alliage_cuivre.svg" },
+        { "name": "alliage léger", "file": "alliage_leger.svg" },
+        { "name": "polymère", "file": "polymere.svg" },
+        { "name": "bobinage", "file": "bobinage.svg" },
+        { "name": "antifriction", "file": "antifriction.svg" }
+    ],
+
+    "name_file_en" : []
+}

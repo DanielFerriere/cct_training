@@ -1,0 +1,23 @@
+<svg width="950" height="950" viewBox="0 0 950 950" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="950" height="950" fill="white"/>
+<path d="M709.208 772.712V176.076H241V772.712H709.208Z" fill="#B3B3B3" stroke="black" stroke-width="1.99937" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M603.184 772.552H347.024V176.5H603.184V772.552Z" fill="#D9D9D9" stroke="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M241 770.368V772.712H603.608V176.076H241V770.368Z" stroke="black" stroke-width="1.99937" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M346.6 772.712V176.076" stroke="black" stroke-width="1.99937" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M603.608 772.712H709.208V176.076H603.608" stroke="black" stroke-width="1.99937" stroke-linecap="round" stroke-linejoin="round"/>
+<mask id="mask0_2006_256" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="240" y="175" width="471" height="599">
+<path d="M346.6 772.712V176.076H241V772.712H346.6Z" fill="#D9D9D9"/>
+<path d="M603.608 772.712V176.076H709.208V772.712H603.608Z" fill="#D9D9D9"/>
+<path d="M346.6 772.712V176.076H241V772.712H346.6Z" stroke="black" stroke-width="1.99937" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M603.608 772.712V176.076H709.208V772.712H603.608Z" stroke="black" stroke-width="1.99937" stroke-linecap="round" stroke-linejoin="round"/>
+</mask>
+<g mask="url(#mask0_2006_256)">
+<line x1="118.823" y1="853.143" x2="825.93" y2="146.037" stroke="black" stroke-width="0.5"/>
+<line x1="118.823" y1="689.037" x2="825.93" y2="-18.07" stroke="black" stroke-width="0.5"/>
+<line x1="118.823" y1="524.93" x2="825.93" y2="-182.177" stroke="black" stroke-width="0.5"/>
+<line x1="118.823" y1="360.833" x2="825.93" y2="-346.274" stroke="black" stroke-width="0.5"/>
+<line x1="118.823" y1="1345.46" x2="825.93" y2="638.357" stroke="black" stroke-width="0.5"/>
+<line x1="118.823" y1="1181.36" x2="825.93" y2="474.25" stroke="black" stroke-width="0.5"/>
+<line x1="118.823" y1="1017.25" x2="825.93" y2="310.143" stroke="black" stroke-width="0.5"/>
+</g>
+</svg>

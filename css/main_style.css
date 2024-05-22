@@ -1,0 +1,442 @@
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /* ====== Colors ====== */
+    --body-color: #E0D2FF;
+    --sidebar-color: #FFF;
+    --primary-color: #55209b;
+    --primary-color-light: #f1e6ff ;
+    --toggle-color: #DDD ;
+    --text-color: #707070 ;
+
+    --text-button-color: #707070;
+    --text-button-hover-color: #FFF;
+    --button-color: #E0D2FF;
+    --button-hover-color: #55209b;
+    --button-disabled-color: #f1e6ff;
+
+    /* ====== Transition ====== */
+    --transition-02: all 0.2s ease;
+    --transition-03: all 0.3s ease;
+    --transition-04: all 0.4s ease;
+    --transition-05: all 0.5s ease; 
+}
+
+body{
+    height: 100vh;
+    background: var(--body-color);
+    transition: var(--transition-05);
+}
+
+body.dark{
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c ;
+    --toggle-color: #fff ;
+    --text-color: #ccc ;
+
+    --text-button-color: #ccc;
+    --text-button-hover-color: #CCC;
+    --button-color: #3d3d3d;
+    --button-hover-color: #6d6d6d;
+    --button-disabled-color: #a8a8a8;
+}
+
+/* ====== Sidebar ====== */
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--transition-05);
+    z-index: 100;
+    /*margin-left: auto;
+    margin-right: auto;
+    text-align: center;*/
+}
+
+.sidebar.close{
+    width: 88px;
+}
+
+/* ====== Resuable CSS ====== */
+.sidebar .text{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--transition-03);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text{
+    font-size: 0px;
+    opacity: 0;
+}
+
+.sidebar .image{
+    min-width: 60px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar li{
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    font-size: 20px;
+}
+
+.sidebar li .icon,
+.sidebar li .text{
+    color: var(--text-color);
+    transition: var(--transition-02);
+}
+
+.sidebar header{
+    position: relative;
+}
+
+.sidebar .image-text img{
+    width: 60px;
+    border-radius: 8px;
+    /*margin-bottom: 10px;*/
+}
+
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+}
+
+header .image-text .header-text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.header-text .name{
+    font-weight: 600;
+}
+
+.header-text .subtitle{
+    margin-top: -2px;
+}
+
+.sidebar header .toggle{
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--sidebar-color);
+    font-size: 22px;
+    transition: var(--transition-03);
+}
+
+.sidebar.close header .toggle{
+    transform: translateY(-50%);
+}
+
+body.dark .sidebar header .toggle{
+    color: var(--text-color);
+}
+
+.sidebar .menu{
+    margin-top: 35px;
+}
+
+.sidebar .search-box{
+    background: var(--primary-color-light);
+    border-radius: 6px;
+    transition: var(--transition-05);
+}
+
+.search-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    background: var(--primary-color-light);
+}
+
+.sidebar li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--transition-04);
+}
+
+.sidebar li a:hover{
+    background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--sidebar-color);
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-bar .mode{
+    position: relative;
+    background: var(--primary-color-light);
+    border-radius: 6px;
+}
+
+.menu-bar .mode .moon-sun{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-bar .mode i{
+    position: absolute;
+    transition: var(--transition-03);
+}
+
+.menu-bar .mode i.sun{
+    opacity: 0;
+}
+
+body.dark .menu-bar .mode i.sun{
+    opacity: 1;
+}
+
+body.dark .menu-bar .mode i.moon{
+    opacity: 0;
+}
+
+
+.menu-bar .mode .toggle-switch{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+    transition: var(--transition-05);
+}
+
+.toggle-switch .switch{
+    position: relative;
+    height: 22px;
+    width: 44px;
+    border-radius: 25px;
+    background: var(--toggle-color);
+    transition: var(--transition-05);
+}
+
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--sidebar-color);
+    transition: var(--transition-03);
+}
+
+body.dark .switch::before{
+    left: 24px;
+}
+
+
+
+
+
+.home{
+    position: relative;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    display: flex;
+    flex-flow: column;
+    background: var(--body-color);
+    transition: var(--transition-05);
+}
+
+.home .text{
+    padding: 8px 40px;
+    font-size: 30px;
+    font-weight: 500;
+    flex: 0 1 auto;
+    color: var(--text-color);
+}
+
+.home main{
+    position: static;
+    flex: 1 1 auto;
+    margin: 0 2rem 2rem 2rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: var(--sidebar-color);
+    transition: var(--transition-01);
+}
+
+.home button{
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--text-button-color);
+    background-color: var(--button-color);
+    transition: var(--transition-03);
+}
+
+.home button:hover{
+    cursor: pointer;
+    color: var(--text-button-hover-color);
+    background-color: var(--button-hover-color);
+    transition: var(--transition-03);
+}
+
+.home button:disabled{
+    cursor: default;
+    color: var(--text-button-hover-color);
+    background-color: var(--button-disabled-color);
+    transition: var(--transition-03);
+}
+
+.logo {
+    height: 7em;
+    margin: auto;
+    padding: 20px;
+    display: block;
+    border: none;
+    border-radius: 50%;
+}
+
+
+.grid-2x2 {
+    flex: 1 1 auto;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid-2x2 li {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-2x2 li button {
+    flex: 1 1 auto;
+    /*margin: 1em;*/
+    /*width: calc(100% - 1em);*/
+}
+
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: #cccccc38;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: var(--transition-02);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-button-color);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px gray;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+}
+
+.modal-content button {
+    margin-top: 0.5rem;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: var(--transition-02);
+}
+
+.show-modal-content {
+    visibility: visible;
+}
+
+
+
+
+
+
+.sidebar.close ~ .home{
+    left: 88px;
+    width: calc(100% - 88px);
+}
+
