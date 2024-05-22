@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     dashboardBtn.addEventListener("click", function(event) {
         event.preventDefault();
-        window.location.href = "./index.html";
+        window.location.href = "/index.html";
     })
 });
 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     trainingBtn.addEventListener("click", function(event) {
         event.preventDefault();
-        window.location.href = "./training.html";
+        window.location.href = "/training.html";
     })
 });
 
