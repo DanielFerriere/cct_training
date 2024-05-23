@@ -122,6 +122,8 @@
                 </button>
             </form>
 
+            <h3 class="guess-remain">0/10</h3>
+
         </main>
 
         <div class="modal">
@@ -141,6 +143,8 @@
         const gameInput = document.getElementById("gameInput");
         const sendBtn = document.getElementById("sendBtn");
 
+        const guessRemain = document.querySelector(".guess-remain");
+
         const modal = document.querySelector(".modal");
         const modalContent = document.querySelector(".modal-content");
         const retryBtn = document.getElementById("retryBtn");
@@ -151,6 +155,7 @@
             gameForm,
             gameInput,
             sendBtn,
+            guessRemain,
             modal,
             modalContent,
             retryBtn

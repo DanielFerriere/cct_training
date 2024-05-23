@@ -315,19 +315,6 @@ body.dark .switch::before{
     color: var(--text-color);
 }
 
-.home main{
-    position: static;
-    flex: 1 1 auto;
-    margin: 0 2rem 2rem 2rem;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    background: var(--sidebar-color);
-    transition: var(--transition-01);
-}
-
 .home button{
     font-size: 30px;
     font-weight: 500;
@@ -352,6 +339,19 @@ body.dark .switch::before{
     color: var(--text-button-hover-color);
     background-color: var(--button-disabled-color);
     transition: var(--transition-03);
+}
+
+main{
+    position: static;
+    flex: 1 1 auto;
+    margin: 0 2rem 2rem 2rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: var(--sidebar-color);
+    transition: var(--transition-01);
 }
 
 .logo {

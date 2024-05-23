@@ -47,7 +47,7 @@
     //game mode class
     class Game {
 
-        constructor(imagesDir, modal, modalContent, retryBtn) {
+        constructor(imagesDir, guessRemain, modal, modalContent, retryBtn) {
             this.answer = "";
             this.score = 0;
             this.score_max = 0;
@@ -55,7 +55,9 @@
             this.references = [];
     
             this.imagesDir = imagesDir;
-    
+            
+            this.guessRemain = guessRemain;
+
             this.modal = modal;
             this.modalContent = modalContent;
             this.retryBtn = retryBtn;
@@ -70,6 +72,10 @@
     
         add_point() {
             ++this.score;
+        }
+
+        change_guessRemain() {
+            this.guessRemain.innerText = "".concat(this.references.length-this.guessing.length, "/", this.references.length);
         }
     
         async begin() {
@@ -104,8 +110,8 @@
     
     class GameImg2Choice extends Game {
     
-        constructor(imagesDir, gameImg, button1, button2, button3, button4, modal, modalContent, retryBtn) {
-            super(imagesDir, modal, modalContent, retryBtn);
+        constructor(imagesDir, gameImg, button1, button2, button3, button4, guessRemain, modal, modalContent, retryBtn) {
+            super(imagesDir, guessRemain, modal, modalContent, retryBtn);
     
             this.gameImg = gameImg;
             this.buttons = [button1, button2, button3, button4];
@@ -137,6 +143,7 @@
             //get the new guess
             let guess = this.guessing.shift();
             this.answer = guess["name"];
+            this.change_guessRemain();
     
             //change the game image
             this.gameImg.src = this.imagesDir + "/".concat(guess["file"]);
@@ -186,8 +193,8 @@
     
     class GameImg2Word extends Game {
     
-        constructor(imagesDir, gameImg, gameForm, gameInput, sendBtn, modal, modalContent, retryBtn) {
-            super(imagesDir, modal, modalContent, retryBtn);
+        constructor(imagesDir, gameImg, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn) {
+            super(imagesDir, guessRemain, modal, modalContent, retryBtn);
     
             this.gameImg = gameImg;
             this.gameForm = gameForm;
@@ -207,6 +214,7 @@
             //get the new guess
             let guess = this.guessing.shift();
             this.answer = guess["name"];
+            this.change_guessRemain();
     
             //change the game image
             this.gameImg.src = this.imagesDir + "/".concat(guess["file"]);
@@ -245,8 +253,8 @@
     
     class GameWord2Img extends Game {
     
-        constructor(imagesDir, gameGuess, button1, button2, button3, button4, modal, modalContent, retryBtn) {
-            super(imagesDir, modal, modalContent, retryBtn);
+        constructor(imagesDir, gameGuess, button1, button2, button3, button4, guessRemain, modal, modalContent, retryBtn) {
+            super(imagesDir, guessRemain, modal, modalContent, retryBtn);
     
             this.gameGuess = gameGuess;
             this.buttons = [button1, button2, button3, button4];
@@ -279,6 +287,7 @@
             //get the new guess
             let guess = this.guessing.shift();
             this.answer = guess["name"];
+            this.change_guessRemain();
     
             //change the game image
             this.gameGuess.innerText = this.answer;
@@ -330,8 +339,8 @@
     
     
     class GameKinematicPlan extends Game {
-        constructor(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, modal, modalContent, retryBtn) {
-            super(plansDir, modal, modalContent, retryBtn);
+        constructor(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn) {
+            super(plansDir, guessRemain, modal, modalContent, retryBtn);
     
             this.plansDir = plansDir;
     

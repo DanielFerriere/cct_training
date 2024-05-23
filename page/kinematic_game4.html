@@ -133,6 +133,8 @@
                     <i class='bx bx-send' ></i>
                 </button>
             </form>
+
+            <h3 class="guess-remain">0/10</h3>
             
         </main>
 
@@ -156,11 +158,24 @@
         const gameInput = document.getElementById("gameInput");
         const sendBtn = document.getElementById("sendBtn");
 
+        const guessRemain = document.querySelector(".guess-remain");
+
         const modal = document.querySelector(".modal");
         const modalContent = document.querySelector(".modal-content");
         const retryBtn = document.getElementById("retryBtn");
 
-        var game = new gamemode.GameKinematicPlan( "../assets/plan", guessText, gameDiv, gameForm, gameInput, sendBtn, modal, modalContent, retryBtn);
+        var game = new gamemode.GameKinematicPlan(
+            "../assets/plan",
+            guessText,
+            gameDiv,
+            gameForm,
+            gameInput,
+            sendBtn,
+            guessRemain,
+            modal,
+            modalContent,
+            retryBtn
+        );
 
         game.begin();
     </script>

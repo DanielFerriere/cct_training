@@ -53,6 +53,11 @@ main h1 {
     color: var(--text-color);
 }
 
+main h3.guess-remain {
+    padding-top: 1rem;
+    color: var(--text-color);
+}
+
 
 
 .grid-2x2 li button img{
