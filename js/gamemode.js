@@ -31,7 +31,7 @@
         let numbers = [];
         for (let i=0; i<array.length; i++) numbers.push(i);
     
-        for (let i=0; i<n; i++) {
+        for (let i=0; i<Math.min(n, array.length); i++) {
             let r = random_int(numbers.length);
             let index = numbers.indexOf(r);
             sample.push(array[numbers[r]]);
