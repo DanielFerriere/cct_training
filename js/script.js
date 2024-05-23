@@ -6,7 +6,22 @@ const body = document.querySelector("body"),
       modeText = document.querySelector(".mode-text");
 
 
-      
+
+/**
+ * redirect to the right rootfile depending if you are on local or github
+ * @param {string} filename - The name of the file present on the root website
+ */
+function go2RootFile (filename) {
+    let listDir = window.location.href.split("/").filter((v) => v != ""); 
+    if (listDir.includes("cct_training")) { // if you are on github
+        window.location.href = "/cct_training/" + filename;
+    } else { // if you are on local
+        window.location.href = "/" + filename;
+    }
+}
+
+
+
 toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close");
 })
@@ -32,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     dashboardBtn.addEventListener("click", function(event) {
         event.preventDefault();
-        window.location.href = "/index.html";
+        go2RootFile("index.html");
     })
 });
 
@@ -41,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     trainingBtn.addEventListener("click", function(event) {
         event.preventDefault();
-        window.location.href = "/training.html";
+        go2RootFile("training.html")
     })
 });
 
@@ -55,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.removeItem("currentUser");
 
         // Rediriger vers la page de connexion
-        window.location.href = "./login.html";
+        window.location.href = go2RootFile("login.html");
     });
 });
 
