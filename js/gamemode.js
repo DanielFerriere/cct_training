@@ -47,14 +47,12 @@
     //game mode class
     class Game {
 
-        constructor(imagesDir, guessRemain, modal, modalContent, retryBtn) {
+        constructor(guessRemain, modal, modalContent, retryBtn) {
             this.answer = "";
             this.score = 0;
             this.score_max = 0;
             this.guessing = [];
             this.references = [];
-    
-            this.imagesDir = imagesDir;
             
             this.guessRemain = guessRemain;
 
@@ -74,9 +72,38 @@
             ++this.score;
         }
 
+
+        finish_game() {
+            let textModal = this.modalContent.querySelector("h2");
+            textModal.innerText = "Votre score est de ".concat(this.score,"/",this.score_max);
+            this.modalContent.classList.toggle("show-modal-content");
+    
+            this.modal.classList.toggle("show-modal");
+        }
+
+        change_guessRemain() {}
+    
+        async begin() {}
+    
+        new_guess() {}
+        reply() {}
+    }
+
+
+
+    class GameImg extends Game {
+
+        constructor(imagesDir, guessRemain, modal, modalContent, retryBtn) {
+            super(guessRemain, modal, modalContent, retryBtn);
+    
+            this.imagesDir = imagesDir;
+        }
+
+
         change_guessRemain() {
             this.guessRemain.innerText = "".concat(this.references.length-this.guessing.length, "/", this.references.length);
         }
+
     
         async begin() {
             const response = await fetch(this.imagesDir + "/image.json");
@@ -93,22 +120,101 @@
             this.modalContent.classList.remove("show-modal-content");
             this.new_guess();
         }
-    
-        finish_game() {
-            let textModal = this.modalContent.querySelector("h2");
-            textModal.innerText = "Votre score est de ".concat(this.score,"/",this.score_max);
-            this.modalContent.classList.toggle("show-modal-content");
-    
-            this.modal.classList.toggle("show-modal");
-        }
-    
+
         new_guess() {}
         reply() {}
+    }
+
+
+
+    class GamePlan extends Game {
+        constructor(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn) {
+            super(guessRemain, modal, modalContent, retryBtn);
+    
+            this.plansDir = plansDir;
+    
+            this.guessText = guessText;
+            this.svgDiv = svgDiv;
+            this.gameForm = gameForm;
+            this.gameInput = gameInput;
+            this.sendBtn = sendBtn;
+    
+
+    
+            this.svg = d3.select(svgDiv).append("svg")
+                .attr("width", "100%")
+                .attr("height", "100%");
+    
+            let htmlsvg = this.svg.node();
+    
+            this.svg_height = htmlsvg.clientHeight;
+            this.svg_width = htmlsvg.clientWidth;
+            this.img_height = 0;
+            this.img_width = 0;
+    
+            this.g = this.svg.append("g");
+    
+            this.img = this.g.append("image");
+    
+            this.zoom = d3.zoom();
+    
+            this.svg.call(this.zoom);
+    
+    
+            var self = this;
+            gameForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                console.log("Response get submit");
+                self.reply();
+            });
+        }
+
+
+        zoomingTo(bound) {
+            let [[x0, y0], [x1, y1]] = bound;
+        
+            this.svg.transition().duration(750).call(
+                this.zoom.transform,
+                d3.zoomIdentity
+                    .translate(this.svg_width / 2, this.svg_height / 2)
+                    .scale(Math.min(8, 0.9 / Math.max((x1 - x0) / this.svg_width, (y1 - y0) / this.svg_height)))
+                    .translate(-(x0 + x1) / 2, -(y0 + y1) / 2)
+            );
+        }
+
+        reply() {
+            this.gameInput.disabled = true;
+            this.sendBtn.disabled = true;
+    
+            if (this.answer.toLowerCase().split("/").includes(this.gameInput.value.toLowerCase())) {
+                this.add_point();
+                this.gameInput.classList.toggle("right");
+            } else {
+                this.gameInput.classList.toggle("wrong");
+            }
+    
+            if (this.guessing.length == 0) {
+                this.finish_game();
+                return;
+            }
+    
+            setTimeout(() => {
+                this.new_guess();
+            }, 2000);
+        }
+
+        change_guessRemain() {}
+
+        async begin() {}
+
+        new_guess() {}
     }
     
     
     
-    class GameImg2Choice extends Game {
+
+
+    class GameImg2Choice extends GameImg {
     
         constructor(imagesDir, gameImg, button1, button2, button3, button4, guessRemain, modal, modalContent, retryBtn) {
             super(imagesDir, guessRemain, modal, modalContent, retryBtn);
@@ -191,7 +297,7 @@
     
     
     
-    class GameImg2Word extends Game {
+    class GameImg2Word extends GameImg {
     
         constructor(imagesDir, gameImg, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn) {
             super(imagesDir, guessRemain, modal, modalContent, retryBtn);
@@ -251,7 +357,7 @@
     
     
     
-    class GameWord2Img extends Game {
+    class GameWord2Img extends GameImg {
     
         constructor(imagesDir, gameGuess, button1, button2, button3, button4, guessRemain, modal, modalContent, retryBtn) {
             super(imagesDir, guessRemain, modal, modalContent, retryBtn);
@@ -338,60 +444,17 @@
     
     
     
-    class GameKinematicPlan extends Game {
+    class GameKinematicPlan extends GamePlan {
         constructor(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn) {
-            super(plansDir, guessRemain, modal, modalContent, retryBtn);
-    
-            this.plansDir = plansDir;
-    
-            this.guessText = guessText;
-            this.svgDiv = svgDiv;
-            this.gameForm = gameForm;
-            this.gameInput = gameInput;
-            this.sendBtn = sendBtn;
-    
+            super(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn);
+
             this.kinematic_group = [];
             this.kinematic_link = [];
-    
-    
-            this.svg = d3.select(svgDiv).append("svg")
-                .attr("width", "100%")
-                .attr("height", "100%");
-    
-            let htmlsvg = this.svg.node();
-    
-            this.svg_height = htmlsvg.clientHeight;
-            this.svg_width = htmlsvg.clientWidth;
-            this.img_height = 0;
-            this.img_width = 0;
-    
-            this.g = this.svg.append("g");
-    
-            this.img = this.g.append("image");
-    
-            this.zoom = d3.zoom();
-    
-            this.svg.call(this.zoom);
-    
-    
-            var self = this;
-            gameForm.addEventListener("submit", function(event) {
-                event.preventDefault();
-                console.log("Response get submit");
-                self.reply();
-            });
         }
-    
-        zoomingTo(bound) {
-            let [[x0, y0], [x1, y1]] = bound;
-        
-            this.svg.transition().duration(750).call(
-                this.zoom.transform,
-                d3.zoomIdentity
-                    .translate(this.svg_width / 2, this.svg_height / 2)
-                    .scale(Math.min(8, 0.9 / Math.max((x1 - x0) / this.svg_width, (y1 - y0) / this.svg_height)))
-                    .translate(-(x0 + x1) / 2, -(y0 + y1) / 2)
-            );
+
+
+        change_guessRemain() {
+            this.guessRemain.innerText = "".concat(this.kinematic_link.length-this.guessing.length, "/", this.kinematic_link.length);
         }
     
         async begin() {
@@ -433,6 +496,7 @@
             //get the new guess
             let guess = this.guessing.shift();
             this.answer = guess["name"];
+            this.change_guessRemain();
     
             //change the guessText
             let color_group1 = "";
@@ -459,88 +523,21 @@
             this.gameInput.classList.remove("right");
             this.gameInput.classList.remove("wrong");
         }
-    
-        reply() {
-            this.gameInput.disabled = true;
-            this.sendBtn.disabled = true;
-    
-            if (this.answer.toLowerCase().split("/").includes(this.gameInput.value.toLowerCase())) {
-                this.add_point();
-                this.gameInput.classList.toggle("right");
-            } else {
-                this.gameInput.classList.toggle("wrong");
-            }
-    
-            if (this.guessing.length == 0) {
-                this.finish_game();
-                return;
-            }
-    
-            setTimeout(() => {
-                this.new_guess();
-            }, 2000);
-        }
-    
-    
+
     }
 
 
 
-
-
-    class GameMaterialPlan extends Game {
+    class GameMaterialPlan extends GamePlan {
         constructor(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn) {
-            super(plansDir, guessRemain, modal, modalContent, retryBtn);
-    
-            this.plansDir = plansDir;
-    
-            this.guessText = guessText;
-            this.svgDiv = svgDiv;
-            this.gameForm = gameForm;
-            this.gameInput = gameInput;
-            this.sendBtn = sendBtn;
+            super(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn);
     
             this.pieces = [];
-    
-    
-            this.svg = d3.select(svgDiv).append("svg")
-                .attr("width", "100%")
-                .attr("height", "100%");
-    
-            let htmlsvg = this.svg.node();
-    
-            this.svg_height = htmlsvg.clientHeight;
-            this.svg_width = htmlsvg.clientWidth;
-            this.img_height = 0;
-            this.img_width = 0;
-    
-            this.g = this.svg.append("g");
-    
-            this.img = this.g.append("image");
-    
-            this.zoom = d3.zoom();
-    
-            this.svg.call(this.zoom);
-    
-    
-            var self = this;
-            gameForm.addEventListener("submit", function(event) {
-                event.preventDefault();
-                console.log("Response get submit");
-                self.reply();
-            });
         }
-    
-        zoomingTo(bound) {
-            let [[x0, y0], [x1, y1]] = bound;
-        
-            this.svg.transition().duration(750).call(
-                this.zoom.transform,
-                d3.zoomIdentity
-                    .translate(this.svg_width / 2, this.svg_height / 2)
-                    .scale(Math.min(8, 0.9 / Math.max((x1 - x0) / this.svg_width, (y1 - y0) / this.svg_height)))
-                    .translate(-(x0 + x1) / 2, -(y0 + y1) / 2)
-            );
+
+
+        change_guessRemain() {
+            this.guessRemain.innerText = "".concat(this.pieces.length-this.guessing.length, "/", this.pieces.length);
         }
     
         async begin() {
@@ -581,6 +578,7 @@
             //get the new guess
             let guess = this.guessing.shift();
             this.answer = guess["material"];
+            this.change_guessRemain();
     
             //change the guessText
             if (guess["name"] != "") {
@@ -589,7 +587,6 @@
                 this.guessText.innerText = "Quel est le matériaux de la pièce " + guess["name"] + " " + guess["num"]  + " ?";
             }
             
-    
             //zoom to the new guess
             this.zoomingTo(guess["bound"]);
     
@@ -600,28 +597,6 @@
             this.gameInput.classList.remove("right");
             this.gameInput.classList.remove("wrong");
         }
-    
-        reply() {
-            this.gameInput.disabled = true;
-            this.sendBtn.disabled = true;
-    
-            if (this.answer.toLowerCase().split("/").includes(this.gameInput.value.toLowerCase())) {
-                this.add_point();
-                this.gameInput.classList.toggle("right");
-            } else {
-                this.gameInput.classList.toggle("wrong");
-            }
-    
-            if (this.guessing.length == 0) {
-                this.finish_game();
-                return;
-            }
-    
-            setTimeout(() => {
-                this.new_guess();
-            }, 2000);
-        }
-    
     
     }
 
