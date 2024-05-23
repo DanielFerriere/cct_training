@@ -90,6 +90,10 @@ arrayGamemodeBtn[2][2].addEventListener("click", function(event) {
     window.location.href = "./page/material_game3.html";
 });
 
+arrayGamemodeBtn[2][3].addEventListener("click", function(event) {
+    event.preventDefault();
+    window.location.href = "./page/material_game4.html";
+});
 
 
 

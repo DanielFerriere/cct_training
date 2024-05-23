@@ -484,8 +484,154 @@
     
     }
 
+
+
+
+
+    class GameMaterialPlan extends Game {
+        constructor(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn) {
+            super(plansDir, guessRemain, modal, modalContent, retryBtn);
+    
+            this.plansDir = plansDir;
+    
+            this.guessText = guessText;
+            this.svgDiv = svgDiv;
+            this.gameForm = gameForm;
+            this.gameInput = gameInput;
+            this.sendBtn = sendBtn;
+    
+            this.pieces = [];
+    
+    
+            this.svg = d3.select(svgDiv).append("svg")
+                .attr("width", "100%")
+                .attr("height", "100%");
+    
+            let htmlsvg = this.svg.node();
+    
+            this.svg_height = htmlsvg.clientHeight;
+            this.svg_width = htmlsvg.clientWidth;
+            this.img_height = 0;
+            this.img_width = 0;
+    
+            this.g = this.svg.append("g");
+    
+            this.img = this.g.append("image");
+    
+            this.zoom = d3.zoom();
+    
+            this.svg.call(this.zoom);
+    
+    
+            var self = this;
+            gameForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                console.log("Response get submit");
+                self.reply();
+            });
+        }
+    
+        zoomingTo(bound) {
+            let [[x0, y0], [x1, y1]] = bound;
+        
+            this.svg.transition().duration(750).call(
+                this.zoom.transform,
+                d3.zoomIdentity
+                    .translate(this.svg_width / 2, this.svg_height / 2)
+                    .scale(Math.min(8, 0.9 / Math.max((x1 - x0) / this.svg_width, (y1 - y0) / this.svg_height)))
+                    .translate(-(x0 + x1) / 2, -(y0 + y1) / 2)
+            );
+        }
+    
+        async begin() {
+            const response = await fetch(this.plansDir + "/info_plan.json");
+            var json_data = await response.json();
+            var all_plan = json_data["fr"];
+    
+            this.references = all_plan[random_int(all_plan.length)];
+            this.pieces = this.references["piece"].filter((elt) => elt["material"] != "");
+    
+            this.score = 0;
+            this.score_max = this.pieces.length;
+    
+            this.guessing = this.pieces.slice();
+            shuffle(this.guessing);
+    
+    
+            this.img_height = this.references["height"];
+            this.img_width = this.references["width"];
+    
+            this.img.attr("href", this.plansDir + "/" + this.references["file_blank"])
+                .attr("height", this.img_height)
+                .attr("width", this.img_width);
+    
+            this.zoom.scaleExtent([Math.min(this.svg_height/this.img_height, this.svg_width/this.img_width), 8])
+                .on("zoom", (event) => {
+                    const {transform} = event;
+                    this.g.attr("transform", transform);
+                });
+    
+    
+            this.modal.classList.remove("show-modal");
+            this.modalContent.classList.remove("show-modal-content");
+            this.new_guess();
+        }
+    
+        new_guess() {
+            //get the new guess
+            let guess = this.guessing.shift();
+            this.answer = guess["material"];
+    
+            //change the guessText
+            if (guess["name"] != "") {
+                this.guessText.innerText = "Quel est le matériaux de la pièce " + guess["num"]  + " ?";
+            } else {
+                this.guessText.innerText = "Quel est le matériaux de la pièce " + guess["name"] + " " + guess["num"]  + " ?";
+            }
+            
+    
+            //zoom to the new guess
+            this.zoomingTo(guess["bound"]);
+    
+            //resore input state
+            this.gameInput.value = "";
+            this.gameInput.disabled = false;
+            this.sendBtn.disabled = false;
+            this.gameInput.classList.remove("right");
+            this.gameInput.classList.remove("wrong");
+        }
+    
+        reply() {
+            this.gameInput.disabled = true;
+            this.sendBtn.disabled = true;
+    
+            if (this.answer.toLowerCase().split("/").includes(this.gameInput.value.toLowerCase())) {
+                this.add_point();
+                this.gameInput.classList.toggle("right");
+            } else {
+                this.gameInput.classList.toggle("wrong");
+            }
+    
+            if (this.guessing.length == 0) {
+                this.finish_game();
+                return;
+            }
+    
+            setTimeout(() => {
+                this.new_guess();
+            }, 2000);
+        }
+    
+    
+    }
+
+
+
+
+
     exports.GameImg2Choice = GameImg2Choice;
     exports.GameImg2Word = GameImg2Word;
     exports.GameWord2Img = GameWord2Img;
     exports.GameKinematicPlan = GameKinematicPlan;
+    exports.GameMaterialPlan = GameMaterialPlan;
 }));
