@@ -201,7 +201,9 @@
             this.gameForm = gameForm;
             this.gameInput = gameInput;
             this.sendBtn = sendBtn;
-    
+
+            this.img_height = 0;
+            this.img_width = 0;
 
             //create an d3 svg object
             this.svg = d3.select(svgDiv).append("svg")
@@ -209,12 +211,7 @@
                 .attr("height", "100%");
             
             //get the document object of d3 svg object this.svg
-            let htmlsvg = this.svg.node();
-    
-            this.svg_height = htmlsvg.clientHeight;
-            this.svg_width = htmlsvg.clientWidth;
-            this.img_height = 0;
-            this.img_width = 0;
+            this.htmlsvg = this.svg.node();
             
             //prepare some d3 variable 
             this.g = this.svg.append("g");
@@ -224,7 +221,7 @@
             this.zoom = d3.zoom();
     
             this.svg.call(this.zoom);
-    
+
             
             //add event for submit player guess
             var self = this;
@@ -245,8 +242,8 @@
             this.svg.transition().duration(750).call(
                 this.zoom.transform,
                 d3.zoomIdentity
-                    .translate(this.svg_width / 2, this.svg_height / 2)
-                    .scale(Math.min(8, 0.9 / Math.max((x1 - x0) / this.svg_width, (y1 - y0) / this.svg_height)))
+                    .translate(this.htmlsvg.clientWidth / 2, this.htmlsvg.clientHeight / 2)
+                    .scale(Math.min(8, 0.9 / Math.max((x1 - x0) / this.htmlsvg.clientWidth, (y1 - y0) / this.htmlsvg.clientHeight)))
                     .translate(-(x0 + x1) / 2, -(y0 + y1) / 2)
             );
         }
@@ -564,7 +561,7 @@
                 .attr("height", this.img_height)
                 .attr("width", this.img_width);
     
-            this.zoom.scaleExtent([Math.min(this.svg_height/this.img_height, this.svg_width/this.img_width), 8])
+            this.zoom.scaleExtent([Math.min(this.htmlsvg.clientHeight/this.img_height, this.htmlsvg.clientWidth/this.img_width), 8])
                 .on("zoom", (event) => {
                     const {transform} = event;
                     this.g.attr("transform", transform);
@@ -647,7 +644,7 @@
                 .attr("height", this.img_height)
                 .attr("width", this.img_width);
     
-            this.zoom.scaleExtent([Math.min(this.svg_height/this.img_height, this.svg_width/this.img_width), 8])
+            this.zoom.scaleExtent([Math.min(this.htmlsvg.clientHeight/this.img_height, this.htmlsvg.clientWidth/this.img_width), 8])
                 .on("zoom", (event) => {
                     const {transform} = event;
                     this.g.attr("transform", transform);
