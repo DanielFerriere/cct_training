@@ -7,10 +7,20 @@
 
 
     //utils function
+
+    /**
+     * Returns a random int between 0 (included) and max (not included)
+     * @param {Number} max - The max int possible (not included)
+     * @returns {Number} - A random int between 0 (included) and max (not included)
+     */
     function random_int(max) {
         return Math.floor(Math.random() * max);
     }
-      
+    
+    /**
+     * Suffle an array
+     * @param {Object[]} array - The array to shuffle
+     */
     function shuffle(array) {
         let currentIndex = array.length;
       
@@ -18,7 +28,7 @@
         while (currentIndex != 0) {
       
             // Pick a remaining element...
-            let randomIndex = Math.floor(Math.random() * currentIndex);
+            let randomIndex = random_int(currentIndex);
             currentIndex--;
         
             // And swap it with the current element.
@@ -26,15 +36,24 @@
         }
     }
     
+    /**
+     * Returns an sample of array of length n if n<array.length else array.length
+     * @param {Object[]} array - The initial array
+     * @param {Number} n - Number of element from array we want to return
+     * @returns {Object[]} - Sample of array with n element or array.length if n > array.length
+     */
     function array_sample(array, n) {
         let sample = [];
         let numbers = [];
         for (let i=0; i<array.length; i++) numbers.push(i);
     
+        //built the sample
         for (let i=0; i<Math.min(n, array.length); i++) {
-            let r = random_int(numbers.length);
-            let index = numbers.indexOf(r);
-            sample.push(array[numbers[r]]);
+            //get randomly the index of an number
+            let index = random_int(numbers.length);
+            //push an array object of index of numbers[index] into sample 
+            sample.push(array[numbers[index]]);
+            //erase the used number
             numbers.splice(index, 1);
         }
     
@@ -45,8 +64,15 @@
 
 
     //game mode class
-    class Game {
 
+    class Game {
+        /**
+         * Create a basic base for gamemode
+         * @param {Object} guessRemain - Document object, refer to how many guess done
+         * @param {Object} modal - Document object, refer to modal pop up
+         * @param {Object} modalContent - Document object, refer to the content of an modal
+         * @param {Object} retryBtn - Document object, refer to an retry button, for retry game
+         */
         constructor(guessRemain, modal, modalContent, retryBtn) {
             this.answer = "";
             this.score = 0;
@@ -59,20 +85,26 @@
             this.modal = modal;
             this.modalContent = modalContent;
             this.retryBtn = retryBtn;
-    
+            
+            //add event for retry button
             var self = this;
             retryBtn.addEventListener("click", function(event) {
+                event.preventDefault();
                 console.log("Retry button has been click");
                 self.begin();
             });
         }
     
-    
+        /**
+         * Add one point to score
+         */
         add_point() {
             ++this.score;
         }
 
-
+        /**
+         * End up game
+         */
         finish_game() {
             let textModal = this.modalContent.querySelector("h2");
             textModal.innerText = "Votre score est de ".concat(this.score,"/",this.score_max);
@@ -81,10 +113,19 @@
             this.modal.classList.toggle("show-modal");
         }
 
+        /**
+         * Change the current number of guess done display
+         */
         change_guessRemain() {}
-    
+        
+        /**
+         * Begin game
+         */
         async begin() {}
-    
+        
+        /**
+         * Start a new guess
+         */
         new_guess() {}
         reply() {}
     }
@@ -92,7 +133,14 @@
 
 
     class GameImg extends Game {
-
+        /**
+         * Create a base for image gamemode
+         * @param {String} imagesDir - images directory for game, REQUIRE an image.json file in the dirrectory
+         * @param {Object} guessRemain - Document object, refer to how many guess done
+         * @param {Object} modal - Document object, refer to modal pop up
+         * @param {Object} modalContent - Document object, refer to the content of an modal
+         * @param {Object} retryBtn - Document object, refer to an retry button, for retry game
+         */
         constructor(imagesDir, guessRemain, modal, modalContent, retryBtn) {
             super(guessRemain, modal, modalContent, retryBtn);
     
@@ -106,6 +154,7 @@
 
     
         async begin() {
+            //get the images reference and name
             const response = await fetch(this.imagesDir + "/image.json");
             var json_data = await response.json();
             this.references = json_data["name_file_fr"];
@@ -115,7 +164,8 @@
     
             this.guessing = this.references.slice();
             shuffle(this.guessing);
-    
+            
+            //hide modal
             this.modal.classList.remove("show-modal");
             this.modalContent.classList.remove("show-modal-content");
             this.new_guess();
@@ -128,6 +178,19 @@
 
 
     class GamePlan extends Game {
+        /**
+         * Create a base for plan gamemode
+         * @param {String} plansDir - plans directory for game, REQUIRE an info_plan.json file in the dirrectory
+         * @param {Object} guessText - Document object, refer to an indication for the guess
+         * @param {Object} svgDiv - Document object, refer to svg div where plan are gonna be display
+         * @param {Object} gameForm - Document object, refer to the object containing gameInput and sendBtn
+         * @param {Object} gameInput - Document object, refer to the input box for the player guess
+         * @param {Object} sendBtn - Document object, refer to the playser guess send button
+         * @param {Object} guessRemain - Document object, refer to how many guess done
+         * @param {Object} modal - Document object, refer to modal pop up
+         * @param {Object} modalContent - Document object, refer to the content of an modal
+         * @param {Object} retryBtn - Document object, refer to an retry button, for retry game
+         */
         constructor(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn) {
             super(guessRemain, modal, modalContent, retryBtn);
     
@@ -140,18 +203,20 @@
             this.sendBtn = sendBtn;
     
 
-    
+            //create an d3 svg object
             this.svg = d3.select(svgDiv).append("svg")
                 .attr("width", "100%")
                 .attr("height", "100%");
-    
+            
+            //get the document object of d3 svg object this.svg
             let htmlsvg = this.svg.node();
     
             this.svg_height = htmlsvg.clientHeight;
             this.svg_width = htmlsvg.clientWidth;
             this.img_height = 0;
             this.img_width = 0;
-    
+            
+            //prepare some d3 variable 
             this.g = this.svg.append("g");
     
             this.img = this.g.append("image");
@@ -160,7 +225,8 @@
     
             this.svg.call(this.zoom);
     
-    
+            
+            //add event for submit player guess
             var self = this;
             gameForm.addEventListener("submit", function(event) {
                 event.preventDefault();
@@ -169,7 +235,10 @@
             });
         }
 
-
+        /**
+         * Zoom to a specific place of this.svg
+         * @param {Number[][]} bound - The bound of box arrond the things to zoom
+         */
         zoomingTo(bound) {
             let [[x0, y0], [x1, y1]] = bound;
         
@@ -182,6 +251,9 @@
             );
         }
 
+        /**
+         * Handle the plauer reply
+         */
         reply() {
             this.gameInput.disabled = true;
             this.sendBtn.disabled = true;
@@ -271,7 +343,11 @@
                 this.buttons[i].innerText = options[i];
             }
         }
-    
+        
+        /**
+         * Handle the plauer reply
+         * @param {int} n - The button number
+         */
         reply(n) {
             if (this.buttons[n].innerText == this.answer) this.add_point();
     
@@ -332,7 +408,10 @@
             this.gameInput.classList.remove("right");
             this.gameInput.classList.remove("wrong");
         }
-    
+        
+        /**
+         * Handle the plauer reply
+         */
         reply() {
             this.gameInput.disabled = true;
             this.sendBtn.disabled = true;
@@ -416,7 +495,11 @@
                 this.buttons[i].value = options[i]["name"];
             }
         }
-    
+        
+        /**
+         * Handle the plauer reply
+         * @param {int} n - The button number
+         */
         reply(n) {
             if (this.buttons[n].value == this.answer) this.add_point();
     
@@ -461,7 +544,8 @@
             const response = await fetch(this.plansDir + "/info_plan.json");
             var json_data = await response.json();
             var all_plan = json_data["fr"];
-    
+            
+            //basicly get all the necessary data
             this.references = all_plan[random_int(all_plan.length)];
             this.kinematic_group = this.references["kinematic"]["group"];
             this.kinematic_link = this.references["kinematic"]["link"];
@@ -544,7 +628,8 @@
             const response = await fetch(this.plansDir + "/info_plan.json");
             var json_data = await response.json();
             var all_plan = json_data["fr"];
-    
+            
+            //basicly get all the necessary data
             this.references = all_plan[random_int(all_plan.length)];
             this.pieces = this.references["piece"].filter((elt) => elt["material"] != "");
     
@@ -603,7 +688,7 @@
 
 
 
-
+    //make the class callable from script tags
     exports.GameImg2Choice = GameImg2Choice;
     exports.GameImg2Word = GameImg2Word;
     exports.GameWord2Img = GameWord2Img;
