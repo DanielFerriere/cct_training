@@ -60,6 +60,15 @@
         return sample;
     }
 
+    /**
+     * Normalize string, get rid of accents
+     * @param {String} string - The string to normalize
+     * @returns String - The normalize string
+     */
+    function normalize_str(string) {
+        return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
 
 
 
@@ -255,7 +264,7 @@
             this.gameInput.disabled = true;
             this.sendBtn.disabled = true;
     
-            if (this.answer.toLowerCase().split("/").includes(this.gameInput.value.toLowerCase())) {
+            if (normalize_str(this.answer).toLowerCase().split("/").includes(normalize_str(this.gameInput.value).toLowerCase())) {
                 this.add_point();
                 this.gameInput.classList.toggle("right");
             } else {
@@ -413,7 +422,7 @@
             this.gameInput.disabled = true;
             this.sendBtn.disabled = true;
     
-            if (this.gameInput.value.toLowerCase() == this.answer.toLowerCase()) {
+            if (normalize_str(this.answer).toLowerCase().split("/").includes(normalize_str(this.gameInput.value).toLowerCase())) {
                 this.add_point();
                 this.gameInput.classList.toggle("right");
             } else {
