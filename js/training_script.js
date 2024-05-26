@@ -53,6 +53,11 @@ arrayGamemodeBtn[0][2].addEventListener("click", function(event) {
     window.location.href = "./page/shape_game3.html";
 });
 
+arrayGamemodeBtn[0][3].addEventListener("click", function(event) {
+    event.preventDefault();
+    window.alert("Coming soon...");
+})
+
 
 arrayGamemodeBtn[1][0].addEventListener("click", function(event) {
     event.preventDefault();
