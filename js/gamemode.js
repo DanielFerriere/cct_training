@@ -10,8 +10,8 @@
 
     /**
      * Returns a random int between 0 (included) and max (not included)
-     * @param {Number} max - The max int possible (not included)
-     * @returns {Number} - A random int between 0 (included) and max (not included)
+     * @param {int} max - The max int possible (not included)
+     * @returns {int} - A random int between 0 (included) and max (not included)
      */
     function random_int(max) {
         return Math.floor(Math.random() * max);
@@ -19,7 +19,7 @@
     
     /**
      * Suffle an array
-     * @param {Object[]} array - The array to shuffle
+     * @param {Array} array - The array to shuffle
      */
     function shuffle(array) {
         let currentIndex = array.length;
@@ -38,9 +38,9 @@
     
     /**
      * Returns an sample of array of length n if n<array.length else array.length
-     * @param {Object[]} array - The initial array
-     * @param {Number} n - Number of element from array we want to return
-     * @returns {Object[]} - Sample of array with n element or array.length if n > array.length
+     * @param {Array} array - The initial array
+     * @param {int} n - Number of element from array we want to return
+     * @returns {Array} - Sample of array with n element or array.length if n > array.length
      */
     function array_sample(array, n) {
         let sample = [];
@@ -77,10 +77,10 @@
     class Game {
         /**
          * Create a basic base for gamemode
-         * @param {Object} guessRemain - Document object, refer to how many guess done
-         * @param {Object} modal - Document object, refer to modal pop up
-         * @param {Object} modalContent - Document object, refer to the content of an modal
-         * @param {Object} retryBtn - Document object, refer to an retry button, for retry game
+         * @param {HTMLElement} guessRemain - Document object, refer to how many guess done
+         * @param {HTMLElement} modal - Document object, refer to modal pop up
+         * @param {HTMLElement} modalContent - Document object, refer to the content of an modal
+         * @param {HTMLElement} retryBtn - Document object, refer to an retry button, for retry game
          */
         constructor(guessRemain, modal, modalContent, retryBtn) {
             this.answer = "";
@@ -145,10 +145,10 @@
         /**
          * Create a base for image gamemode
          * @param {String} imagesDir - images directory for game, REQUIRE an image.json file in the dirrectory
-         * @param {Object} guessRemain - Document object, refer to how many guess done
-         * @param {Object} modal - Document object, refer to modal pop up
-         * @param {Object} modalContent - Document object, refer to the content of an modal
-         * @param {Object} retryBtn - Document object, refer to an retry button, for retry game
+         * @param {HTMLElement} guessRemain - Document object, refer to how many guess done
+         * @param {HTMLElement} modal - Document object, refer to modal pop up
+         * @param {HTMLElement} modalContent - Document object, refer to the content of an modal
+         * @param {HTMLElement} retryBtn - Document object, refer to an retry button, for retry game
          */
         constructor(imagesDir, guessRemain, modal, modalContent, retryBtn) {
             super(guessRemain, modal, modalContent, retryBtn);
@@ -190,15 +190,15 @@
         /**
          * Create a base for plan gamemode
          * @param {String} plansDir - plans directory for game, REQUIRE an info_plan.json file in the dirrectory
-         * @param {Object} guessText - Document object, refer to an indication for the guess
-         * @param {Object} svgDiv - Document object, refer to svg div where plan are gonna be display
-         * @param {Object} gameForm - Document object, refer to the object containing gameInput and sendBtn
-         * @param {Object} gameInput - Document object, refer to the input box for the player guess
-         * @param {Object} sendBtn - Document object, refer to the playser guess send button
-         * @param {Object} guessRemain - Document object, refer to how many guess done
-         * @param {Object} modal - Document object, refer to modal pop up
-         * @param {Object} modalContent - Document object, refer to the content of an modal
-         * @param {Object} retryBtn - Document object, refer to an retry button, for retry game
+         * @param {HTMLElement} guessText - Document object, refer to an indication for the guess
+         * @param {HTMLElement} svgDiv - Document object, refer to svg div where plan are gonna be display
+         * @param {HTMLElement} gameForm - Document object, refer to the object containing gameInput and sendBtn
+         * @param {HTMLElement} gameInput - Document object, refer to the input box for the player guess
+         * @param {HTMLElement} sendBtn - Document object, refer to the playser guess send button
+         * @param {HTMLElement} guessRemain - Document object, refer to how many guess done
+         * @param {HTMLElement} modal - Document object, refer to modal pop up
+         * @param {HTMLElement} modalContent - Document object, refer to the content of an modal
+         * @param {HTMLElement} retryBtn - Document object, refer to an retry button, for retry game
          */
         constructor(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn) {
             super(guessRemain, modal, modalContent, retryBtn);
@@ -293,7 +293,19 @@
 
 
     class GameImg2Choice extends GameImg {
-    
+        /**
+         * Create a base for image gamemode
+         * @param {String} imagesDir - images directory for game, REQUIRE an image.json file in the dirrectory
+         * @param {HTMLElement} gameImg - Document object, refer to the image game
+         * @param {HTMLElement} button1 - Document object, refer to the button game 1
+         * @param {HTMLElement} button2 - Document object, refer to the button game 2
+         * @param {HTMLElement} button3 - Document object, refer to the button game 3
+         * @param {HTMLElement} button4 - Document object, refer to the button game 4
+         * @param {HTMLElement} guessRemain - Document object, refer to how many guess done
+         * @param {HTMLElement} modal - Document object, refer to modal pop up
+         * @param {HTMLElement} modalContent - Document object, refer to the content of an modal
+         * @param {HTMLElement} retryBtn - Document object, refer to an retry button, for retry game
+         */
         constructor(imagesDir, gameImg, button1, button2, button3, button4, guessRemain, modal, modalContent, retryBtn) {
             super(imagesDir, guessRemain, modal, modalContent, retryBtn);
     
@@ -380,7 +392,18 @@
     
     
     class GameImg2Word extends GameImg {
-    
+        /**
+         * Create a base for image gamemode
+         * @param {String} imagesDir - images directory for game, REQUIRE an image.json file in the dirrectory
+         * @param {HTMLElement} gameImg - Document object, refer to the image game
+         * @param {HTMLElement} gameForm - Document object, refer to the object containing gameInput and sendBtn
+         * @param {HTMLElement} gameInput - Document object, refer to the input box for the player guess
+         * @param {HTMLElement} sendBtn - Document object, refer to the playser guess send button
+         * @param {HTMLElement} guessRemain - Document object, refer to how many guess done
+         * @param {HTMLElement} modal - Document object, refer to modal pop up
+         * @param {HTMLElement} modalContent - Document object, refer to the content of an modal
+         * @param {HTMLElement} retryBtn - Document object, refer to an retry button, for retry game
+         */
         constructor(imagesDir, gameImg, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn) {
             super(imagesDir, guessRemain, modal, modalContent, retryBtn);
     
@@ -443,7 +466,19 @@
     
     
     class GameWord2Img extends GameImg {
-    
+        /**
+         * Create a base for image gamemode
+         * @param {String} imagesDir - images directory for game, REQUIRE an image.json file in the dirrectory
+         * @param {HTMLElement} gameImg - Document object, refer to the image game
+         * @param {HTMLElement} button1 - Document object, refer to the button game 1
+         * @param {HTMLElement} button2 - Document object, refer to the button game 2
+         * @param {HTMLElement} button3 - Document object, refer to the button game 3
+         * @param {HTMLElement} button4 - Document object, refer to the button game 4
+         * @param {HTMLElement} guessRemain - Document object, refer to how many guess done
+         * @param {HTMLElement} modal - Document object, refer to modal pop up
+         * @param {HTMLElement} modalContent - Document object, refer to the content of an modal
+         * @param {HTMLElement} retryBtn - Document object, refer to an retry button, for retry game
+         */
         constructor(imagesDir, gameGuess, button1, button2, button3, button4, guessRemain, modal, modalContent, retryBtn) {
             super(imagesDir, guessRemain, modal, modalContent, retryBtn);
     
@@ -534,6 +569,19 @@
     
     
     class GameKinematicPlan extends GamePlan {
+        /**
+         * Create a base for plan gamemode
+         * @param {String} plansDir - plans directory for game, REQUIRE an info_plan.json file in the dirrectory
+         * @param {HTMLElement} guessText - Document object, refer to an indication for the guess
+         * @param {HTMLElement} svgDiv - Document object, refer to svg div where plan are gonna be display
+         * @param {HTMLElement} gameForm - Document object, refer to the object containing gameInput and sendBtn
+         * @param {HTMLElement} gameInput - Document object, refer to the input box for the player guess
+         * @param {HTMLElement} sendBtn - Document object, refer to the playser guess send button
+         * @param {HTMLElement} guessRemain - Document object, refer to how many guess done
+         * @param {HTMLElement} modal - Document object, refer to modal pop up
+         * @param {HTMLElement} modalContent - Document object, refer to the content of an modal
+         * @param {HTMLElement} retryBtn - Document object, refer to an retry button, for retry game
+         */
         constructor(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn) {
             super(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn);
 
@@ -619,6 +667,19 @@
 
 
     class GameMaterialPlan extends GamePlan {
+        /**
+         * Create a base for plan gamemode
+         * @param {String} plansDir - plans directory for game, REQUIRE an info_plan.json file in the dirrectory
+         * @param {HTMLElement} guessText - Document object, refer to an indication for the guess
+         * @param {HTMLElement} svgDiv - Document object, refer to svg div where plan are gonna be display
+         * @param {HTMLElement} gameForm - Document object, refer to the object containing gameInput and sendBtn
+         * @param {HTMLElement} gameInput - Document object, refer to the input box for the player guess
+         * @param {HTMLElement} sendBtn - Document object, refer to the playser guess send button
+         * @param {HTMLElement} guessRemain - Document object, refer to how many guess done
+         * @param {HTMLElement} modal - Document object, refer to modal pop up
+         * @param {HTMLElement} modalContent - Document object, refer to the content of an modal
+         * @param {HTMLElement} retryBtn - Document object, refer to an retry button, for retry game
+         */
         constructor(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn) {
             super(plansDir, guessText, svgDiv, gameForm, gameInput, sendBtn, guessRemain, modal, modalContent, retryBtn);
     
