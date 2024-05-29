@@ -61,12 +61,12 @@
     }
 
     /**
-     * Normalize string, get rid of accents
+     * Normalize string, get rid of accents and multiple space
      * @param {String} string - The string to normalize
-     * @returns String - The normalize string
+     * @returns {String} - The normalize string
      */
     function normalize_str(string) {
-        return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ +(?= )/g,'');
     }
 
 
