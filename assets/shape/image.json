@@ -7,7 +7,7 @@
         { "name": "embase", "file": "embase.svg" },
         { "name": "encoche", "file": "encoche.svg" },
         { "name": "entaille", "file": "entaille.svg" },
-        { "name": "epaulement", "file": "epaulement.svg" },
+        { "name": "épaulement", "file": "epaulement.svg" },
         { "name": "fraisure", "file": "fraisure.svg" },
         { "name": "gorge", "file": "gorge.svg" },
         { "name": "lamage", "file": "lamage.svg" },
@@ -23,7 +23,13 @@
         { "name": "tenon", "file": "tenon.svg" },
         { "name": "trou borgne", "file": "trou_borgne.svg" },
         { "name": "trou débouchant", "file": "trou_debouchant.svg" },
-        { "name": "trou oblong", "file": "trou_oblong.svg" }
+        { "name": "trou oblong", "file": "trou_oblong.svg" },
+        { "name": "alésage", "file": "alesage.svg"},
+        { "name": "chambrage", "file": "chambrage.svg"},
+        { "name": "chanfrein", "file": "chanfrein_interieur.svg"},
+        { "name": "congé", "file": "conge.svg"},
+        { "name": "engrenage", "file": "engrenage.svg"},
+        { "name": "profilé", "file": "profile.svg"}
     ],
 
     "name_file_en" : []

@@ -1,10 +1,10 @@
 <svg width="950" height="950" viewBox="0 0 950 950" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="950" height="950" fill="white"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M623.85 558.294L819.214 576.587Z" stroke="black" stroke-width="1.99937" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M493.797 312.436L622.112 272.978L623.85 558.294L495.535 597.715L493.797 312.436Z" fill="#D9D9D9"/>
 <path d="M691.466 711.139L819.781 671.718L819.214 576.587L690.899 616.046L691.466 711.139Z" fill="#D9D9D9"/>
 <path d="M493.797 312.436L622.112 272.978L623.85 558.294L495.535 597.715L493.797 312.436Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M691.466 711.139L819.781 671.718L819.214 576.587L690.899 616.046L691.466 711.139Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M623.85 558.294L819.214 576.587Z" stroke="black" stroke-width="1.99937" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M691.466 711.139L819.781 671.718L819.214 576.587L690.899 616.046L691.466 711.139ZM691.466 711.139L133.381 658.868L131 278.42M131 278.42L493.797 312.436L622.112 272.978L259.315 239L131 278.42Z" stroke="black" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M493.797 312.436L495.535 597.715L690.899 616.046" stroke="black" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M495.535 597.715L623.85 558.294L622.112 272.978" stroke="black" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>

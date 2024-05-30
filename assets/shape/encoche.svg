@@ -1,13 +1,11 @@
 <svg width="950" height="950" viewBox="0 0 950 950" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="950" height="950" fill="white"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M645.671 309.488L802.899 352.235L645.671 309.488Z" fill="white"/>
-<path d="M147 252.077L209.627 191L480.695 264.663L571.328 372.833L645.671 309.488L802.899 352.235V697.23L740.273 758.307L147 597.072V252.077Z" fill="white"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M645.671 309.488L802.899 352.235L645.671 309.488Z" stroke="black" stroke-width="1.99937" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M147 252.077L209.627 191L480.695 264.663L571.328 372.833L645.671 309.488L802.899 352.235V697.23L740.273 758.307L147 597.072V252.077Z" stroke="black" stroke-width="1.99937" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M480.695 264.663L418.068 325.778L508.701 433.948L571.328 372.833L480.695 264.663Z" fill="#D9D9D9"/>
 <path d="M740.273 758.307L802.899 697.23V352.235L740.273 413.35V758.307Z" fill="#D9D9D9"/>
 <path d="M480.695 264.663L418.068 325.778L508.701 433.948L571.328 372.833L480.695 264.663Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M740.273 758.307L802.899 697.23V352.235L740.273 413.35V758.307Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M645.671 309.488L802.899 352.235Z" stroke="black" stroke-width="1.99937" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M147 252.077L209.627 191L480.695 264.663L571.328 372.833L645.671 309.488L802.899 352.235V697.23L740.273 758.307L147 597.072V252.077Z" stroke="black" stroke-width="1.99937" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M147 252.077L209.627 191L480.695 264.663L418.068 325.778L147 252.077ZM147 252.077V597.072L740.272 758.307M740.272 758.307L802.899 697.23V352.235L740.272 413.35V758.307Z" stroke="black" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M480.694 264.663L571.328 372.833L645.671 309.488L583.044 370.603L508.701 433.948L418.068 325.778" stroke="black" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M508.701 433.948L571.328 372.833" stroke="black" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
