@@ -22,23 +22,33 @@ function go2RootFile (filename) {
 
 
 
+//check if user was previously in dark mode
+if(localStorage.getItem('dark_mode') === 'true') {
+    //switch to dark mode if the user was prevously in dark mode
+    body.classList.add('dark');
+}
+
+
+
 toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close");
-})
+});
 
 search.addEventListener("click", () => {
     sidebar.classList.remove("close");
-})
+});
 
 modeSwitch.addEventListener("click", () => {
     body.classList.toggle("dark");
 
     if(body.classList.contains("dark")){
+        localStorage.setItem('dark_mode', true);
         modeText.innerText = "Light Mode"
     }else{
+        localStorage.setItem('dark_mode', false);
         modeText.innerText = "Dark Mode"
     }
-})
+});
 
 
 
@@ -73,5 +83,9 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = go2RootFile("login.html");
     });
 });
+
+
+
+
 
 
