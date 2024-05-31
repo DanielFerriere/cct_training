@@ -173,6 +173,10 @@ body.dark .sidebar header .toggle{
     margin-top: 35px;
 }
 
+.sidebar .bottom-content{
+    padding-bottom: 14px;
+}
+
 .sidebar .search-box{
     background: var(--primary-color-light);
     border-radius: 6px;
