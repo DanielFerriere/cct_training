@@ -299,8 +299,9 @@ body.dark .switch::before{
 .home{
     position: relative;
     left: 250px;
-    height: 100vh;
+    /*height: 100vh;*/
     width: calc(100% - 250px);
+    padding-bottom: 2rem;
     display: flex;
     flex-flow: column;
     background: var(--body-color);
@@ -344,7 +345,7 @@ body.dark .switch::before{
 main{
     position: static;
     flex: 1 1 auto;
-    margin: 0 2rem 2rem 2rem;
+    margin: 0 2rem;
     padding: 1.5rem;
     border-radius: 0.5rem;
     display: flex;
