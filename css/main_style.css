@@ -305,6 +305,7 @@ body.dark .switch::before{
     left: 250px;
     /*height: 100vh;*/
     width: calc(100% - 250px);
+    min-height: 100vh;
     padding-bottom: 2rem;
     display: flex;
     flex-flow: column;
