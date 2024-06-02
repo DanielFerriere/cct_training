@@ -1,0 +1,60 @@
+.module-learning {
+    border: 0.2rem solid rgb(179, 179, 179);
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+.module-learning li {
+    display: flex;
+    padding: 0.5rem 1rem 0 1rem;
+}
+
+.module-learning li>img {
+    height: 200px;
+}
+
+.module-learning li>div {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.module-learning li>div>div {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+
+
+
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+/*
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+*/

@@ -1,14 +1,15 @@
 <!-- Coding by Nolan-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CCT Training</title>
+    <title>CCT Training - Apprentissage</title>
 
     <!--======= CSS =======-->
     <link rel="stylesheet" href="./css/main_style.css">
+    <link rel="stylesheet" href="./css/learning_style.css">
 
     <!-- ====== Boxicons CSS ====== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -105,10 +106,69 @@
     </nav>
 
     <section class="home">
-        <div class="text">Dashboard</div>
+        <div class="text">Apprentissage</div>
+        
+        <main>
+            <h2>Forme usuel</h2>
+            <select name="forme" id="shapeSelect">
+                <option value="">Choisissez une forme</option>
+            </select>
+
+            <h2>Liaison cinématique</h2>
+            <select name="cinématique" id="kinematicSelect">
+                <option value="">Choisissez une liaison</option>
+            </select>
+
+            <h2>Matériaux</h2>
+            <select name="materiaux" id="materialSelect">
+                <option value="">Choisissez un matériau</option>
+            </select>
+
+            <div class="module-learning">
+                <h2>Forme usuel</h2>
+                <ul id="shapeList">
+                    <!--<li>
+                        <img src="" alt="">
+                        <div>
+                            <h3></h3>
+                            <p></p>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+
+            <div class="module-learning">
+                <h2>Liaison cinématique</h2>
+                <ul id="kinematicList">
+                    <li>
+                        <img src="" alt="">
+                        <div>
+                            <h3></h3>
+                            <p></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="module-learning">
+                <h2>Matériaux</h2>
+                <ul id="materialList">
+                    <li>
+                        <img src="" alt="">
+                        <div>
+                            <h3></h3>
+                            <p></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+        </main>
+
     </section>
 
     <script src="./js/script.js"></script>
+    <script src="./js/learning_script.js"></script>
 
 </body>
 </html>
