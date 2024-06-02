@@ -6,11 +6,13 @@
 
 .module-learning li {
     display: flex;
+    align-items: center;
     padding: 0.5rem 1rem 0 1rem;
 }
 
 .module-learning li>img {
-    height: 200px;
+    height: 300px;
+    border-radius: 0.5rem;
 }
 
 .module-learning li>div {

@@ -27,7 +27,7 @@ function create_element_title(eltName) {
     h3Tag.innerText = eltName;
 
     aTag.innerText = "#";
-    aTag.href = "#" + eltName;
+    aTag.href = "#" + eltName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z]/g,'_');
 
     divTag.appendChild(h3Tag);
     divTag.appendChild(aTag);
@@ -42,7 +42,7 @@ function create_element_tips(elt, i) {
     divTag.classList.add("flex-column");
 
     pTag.classList.add( (i%2==0) ? "text-align-left" : "text-align-right" );
-    pTag.innerHTML = (typeof elt["tips"] === 'undefined') ? "Aucun tips" : elt["tips"];
+    pTag.innerHTML = (typeof elt["tips"] === 'undefined' || elt["tips"] == "") ? "Aucun tips" : elt["tips"];
 
     divTag.appendChild(create_element_title(elt["name"]));
     divTag.appendChild(pTag);
@@ -66,7 +66,7 @@ function create_element_line(elt, i) {
 
 
 
-async function create_module_lists() {
+async function get_references() {
     let response;
     let json_data;
 
@@ -79,23 +79,38 @@ async function create_module_lists() {
 
     response = await fetch("./assets/kinematic/image.json");
     json_data = await response.json();
-    let kinematicRef = json_data["name_file_fr"];
+    let kinematicRef = json_data["name_file_fr"].map((elt) => {
+        elt["file"] = "./assets/kinematic/" + elt["file"];
+        return elt;
+    });
 
     response = await fetch("./assets/material/image.json");
     json_data = await response.json();
-    let materialRef = json_data["name_file_fr"];
+    let materialRef = json_data["name_file_fr"].map((elt) => {
+        elt["file"] = "./assets/material/" + elt["file"];
+        return elt;
+    });
 
-    test(shapeRef);
     
+    return [shapeRef, kinematicRef, materialRef];
 }
 
-function test(shapeRef) {
-    //shapeList.appendChild(create_element_line(shapeRef[3], 3));
+function create_module_lists(shapeRef, kinematicRef, materialRef) {
+    /*shapeList.appendChild(create_element_line(shapeRef[3], 3));*/
     for (let i = 0; i<shapeRef.length; i++) {
         shapeList.appendChild(create_element_line(shapeRef[i], i));
     }
+
+    for (let i = 0; i<kinematicRef.length; i++) {
+        kinematicList.appendChild(create_element_line(kinematicRef[i], i));
+    }
+
+    for (let i = 0; i<materialRef.length; i++) {
+        materialList.appendChild(create_element_line(materialRef[i], i));
+    }
 }
 
+get_references().then( (value) => {
+    create_module_lists(value[0], value[1], value[2]);
+});
 
-
-create_module_lists();
