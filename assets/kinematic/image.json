@@ -1,15 +1,15 @@
 {
     "name_file_fr" : [
-        { "name": "appui plan", "file": "appui_plan_x.svg" },
-        { "name": "glissière", "file": "glissiere_x.svg" },
-        { "name": "linéaire annulaire", "file": "lineaire_annulaire_x.svg" },
-        { "name": "linéaire rectiligne", "file": "lineaire_rectiligne_x_y.svg" },
-        { "name": "pivot glissant", "file": "pivot_glissant_x.svg" },
-        { "name": "pivot", "file": "pivot_x.svg" },
-        { "name": "hélicoïdale", "file": "helicoidale_x.svg" },
-        { "name": "ponctuelle", "file": "ponctuelle_x.svg" },
-        { "name": "rotule", "file": "rotule.svg" },
-        { "name": "rotule à doigt", "file": "rotule_doigt_x.svg" }
+        { "name": "appui plan x", "file": "appui_plan_x.svg", "tips" : "" },
+        { "name": "glissière x", "file": "glissiere_x.svg", "tips" : "" },
+        { "name": "linéaire annulaire x/linéaire circulaire x", "file": "lineaire_annulaire_x.svg", "tips" : "" },
+        { "name": "linéaire rectiligne", "file": "lineaire_rectiligne_x_y.svg", "tips" : "" },
+        { "name": "pivot glissant x", "file": "pivot_glissant_x.svg", "tips" : "" },
+        { "name": "pivot x", "file": "pivot_x.svg", "tips" : "" },
+        { "name": "hélicoïdale x", "file": "helicoidale_x.svg", "tips" : "" },
+        { "name": "ponctuelle x/shère-plan x", "file": "ponctuelle_x.svg", "tips" : "" },
+        { "name": "rotule", "file": "rotule.svg", "tips" : "" },
+        { "name": "rotule à doigt", "file": "rotule_doigt_x.svg", "tips" : "" }
     ],
 
     "name_file_en" : []
