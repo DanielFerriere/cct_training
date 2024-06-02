@@ -1,11 +1,11 @@
 {
     "name_file_fr" : [
-        { "name": "alliage de fer/fer", "file": "alliage_fer.svg" },
-        { "name": "alliage de cuivre/cuivre", "file": "alliage_cuivre.svg" },
-        { "name": "alliage léger/aluminium", "file": "alliage_leger.svg" },
-        { "name": "polymère/plastique", "file": "polymere.svg" },
-        { "name": "bobinage", "file": "bobinage.svg" },
-        { "name": "antifriction", "file": "antifriction.svg" }
+        { "name": "alliage de fer/fer", "file": "alliage_fer.svg", "tips" : "" },
+        { "name": "alliage de cuivre/cuivre", "file": "alliage_cuivre.svg", "tips" : "" },
+        { "name": "alliage léger/aluminium", "file": "alliage_leger.svg", "tips" : "" },
+        { "name": "polymère/plastique", "file": "polymere.svg", "tips" : "" },
+        { "name": "bobinage", "file": "bobinage.svg", "tips" : "" },
+        { "name": "antifriction", "file": "antifriction.svg", "tips" : "" }
     ],
 
     "name_file_en" : []
