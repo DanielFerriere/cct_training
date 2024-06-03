@@ -7,14 +7,6 @@ const shapeSelect = document.getElementById("shapeSelect"),
 
 
 
-/*
-var temp = document.createElement("p");
-temp.innerText = "lebron james";
-shapeList.appendChild(temp);
-temp = document.createElement("p");
-temp.innerText = "stefen curry";
-shapeList.appendChild(temp);
-*/
 
 
 function create_element_title(eltName) {
@@ -27,7 +19,7 @@ function create_element_title(eltName) {
     h3Tag.innerText = eltName;
 
     aTag.innerText = "#";
-    aTag.href = "#" + eltName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z]/g,'_');
+    aTag.href = "#" + eltName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z]/g,'-');
 
     divTag.appendChild(h3Tag);
     divTag.appendChild(aTag);
@@ -64,6 +56,20 @@ function create_element_line(elt, i) {
     return liTag;
 }
 
+function create_module_lists(shapeRef, kinematicRef, materialRef) {
+    /*shapeList.appendChild(create_element_line(shapeRef[3], 3));*/
+    for (let i = 0; i<shapeRef.length; i++) {
+        shapeList.appendChild(create_element_line(shapeRef[i], i));
+    }
+
+    for (let i = 0; i<kinematicRef.length; i++) {
+        kinematicList.appendChild(create_element_line(kinematicRef[i], i));
+    }
+
+    for (let i = 0; i<materialRef.length; i++) {
+        materialList.appendChild(create_element_line(materialRef[i], i));
+    }
+}
 
 
 async function get_references() {
@@ -95,22 +101,18 @@ async function get_references() {
     return [shapeRef, kinematicRef, materialRef];
 }
 
-function create_module_lists(shapeRef, kinematicRef, materialRef) {
-    /*shapeList.appendChild(create_element_line(shapeRef[3], 3));*/
-    for (let i = 0; i<shapeRef.length; i++) {
-        shapeList.appendChild(create_element_line(shapeRef[i], i));
-    }
 
-    for (let i = 0; i<kinematicRef.length; i++) {
-        kinematicList.appendChild(create_element_line(kinematicRef[i], i));
-    }
 
-    for (let i = 0; i<materialRef.length; i++) {
-        materialList.appendChild(create_element_line(materialRef[i], i));
-    }
-}
+
+
+
+
+
+
+
+
+
 
 get_references().then( (value) => {
     create_module_lists(value[0], value[1], value[2]);
 });
-
