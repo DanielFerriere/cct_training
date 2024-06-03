@@ -9,6 +9,10 @@ const shapeSelect = document.getElementById("shapeSelect"),
 
 
 
+function transform_to_string_link(string) {
+    return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z]/g,'-');
+}
+
 function create_element_title(eltName) {
     let divTag = document.createElement("div");
     let h3Tag = document.createElement("h3");
@@ -19,10 +23,10 @@ function create_element_title(eltName) {
     h3Tag.innerText = eltName;
 
     aTag.innerText = "#";
-    aTag.href = "#" + eltName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z]/g,'-');
+    aTag.href = "#" + transform_to_string_link(eltName);
 
+    h3Tag.appendChild(aTag);
     divTag.appendChild(h3Tag);
-    divTag.appendChild(aTag);
 
     return divTag;
 }
@@ -53,23 +57,38 @@ function create_element_line(elt, i) {
     liTag.appendChild(imgTag);
     liTag.appendChild(create_element_tips(elt, i));
 
+    liTag.id = transform_to_string_link(elt["name"]);
+
     return liTag;
+}
+
+function create_element_option(elt) {
+    let optionTag = document.createElement("option");
+
+    optionTag.value = elt["name"];
+    optionTag.innerText = elt["name"];
+
+    return optionTag;
 }
 
 function create_module_lists(shapeRef, kinematicRef, materialRef) {
     /*shapeList.appendChild(create_element_line(shapeRef[3], 3));*/
     for (let i = 0; i<shapeRef.length; i++) {
         shapeList.appendChild(create_element_line(shapeRef[i], i));
+        shapeSelect.appendChild(create_element_option(shapeRef[i]));
     }
 
     for (let i = 0; i<kinematicRef.length; i++) {
         kinematicList.appendChild(create_element_line(kinematicRef[i], i));
+        kinematicSelect.appendChild(create_element_option(kinematicRef[i]));
     }
 
     for (let i = 0; i<materialRef.length; i++) {
         materialList.appendChild(create_element_line(materialRef[i], i));
+        materialSelect.appendChild(create_element_option(materialRef[i]));
     }
 }
+
 
 
 async function get_references() {
@@ -103,11 +122,17 @@ async function get_references() {
 
 
 
+shapeSelect.addEventListener("change", (event) => {
+    window.location.href = "#" + transform_to_string_link(event.target.value);
+});
 
+kinematicSelect.addEventListener("change", (event) => {
+    window.location.href = "#" + transform_to_string_link(event.target.value);
+});
 
-
-
-
+materialSelect.addEventListener("change", (event) => {
+    window.location.href = "#" + transform_to_string_link(event.target.value);
+});
 
 
 
