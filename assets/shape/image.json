@@ -1,6 +1,6 @@
 {
     "name_file_fr" : [
-        { "name": "arbre", "file": "arbre.svg", "tips" : "" },
+        { "name": "arbre", "file": "arbre.svg", "tips" : "l'arbre c'est lebron james<br/>j'ai sauté une ligne" },
         { "name": "bride", "file": "bride.svg", "tips" : "" },
         { "name": "chanfrein", "file": "chanfrein_arbre.svg", "tips" : "" },
         { "name": "collet", "file": "collet.svg", "tips" : "" },
