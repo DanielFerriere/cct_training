@@ -79,9 +79,6 @@ body.dark{
     transition: var(--transition-03);
     white-space: nowrap;
     opacity: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .sidebar.close .text{
@@ -357,6 +354,32 @@ body.dark .switch::before{
     transition: var(--transition-03);
 }
 
+.description {
+    color: var(--text-color);
+    padding: 0.5rem;
+}
+
+.description h2{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.description h3{
+    /*font-size: medium;*/
+    text-decoration: underline;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+
+.description p{
+    /*margin-left: 15px;*/
+    margin-bottom: 1rem;
+}
+
+.description li{
+    margin-left: 30px;
+}
+
 .logo {
     height: 7em;
     margin: auto;
@@ -443,12 +466,3 @@ body.dark .switch::before{
     width: calc(100% - 88px);
 }
 
-.small-button {
-    padding: 5px 10px;
-    font-size: 14px; 
-}
-
-#dateTimeDisplay {
-    margin-right: 10px; 
-    color: #55209b;
-}
