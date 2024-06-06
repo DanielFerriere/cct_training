@@ -1,6 +1,24 @@
+main {
+    color : var(--text-color);
+}
+
+select {
+    color: var(--text-color);
+    background-color: var(--primary-color-light);
+    border: thin solid rgb(179, 179, 179);
+    border-radius: inherit;
+    padding-left: 0.5rem;
+}
+
+select:focus {
+    border: thin solid #55209b;
+}
+
 .module-learning {
-    border: 0.2rem solid rgb(179, 179, 179);
+    border: 0.1rem solid rgb(179, 179, 179);
     border-radius: 0.5rem;
+    box-shadow: 0px 0px 3px gray;
+    /*color: var(--text-color);*/
     margin-top: 1rem;
 }
 
@@ -19,12 +37,11 @@
     display: flex;
     flex-direction: column;
     text-align: start;
+    padding: 0 1rem;
 }
 
-.module-learning li>div>div {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
+.module-learning li>div>div a {
+    margin-left: 0.5em;
 }
 
 
