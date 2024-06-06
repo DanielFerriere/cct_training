@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCT Training - Motus Game</title>
+
+    <!--======= CSS =======-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E0D2FF;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .word-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .letter {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            border: 2px solid #707070;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #707070;
+            background-color: #fff;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #707070;
+            border-radius: 5px;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .submit-button:hover {
+            background-color: #5752d1;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .countdown {
+            font-size: 18px;
+            margin-top: 20px;
+            color: red;
+        }
+
+        .attempts {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        canvas {
+            margin-top: 20px;
+            border: 2px solid #707070;
+            border-radius: 50%;
+            background-color: #fff;
+            width: 100px;
+            height: 100px;
+        }
+
+        .end-buttons {
+            margin-top: 20px;
+        }
+
+        .end-buttons button {
+            padding: 20px 40px;
+            margin: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .retry-button {
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .leave-button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Motus Game</h1>
+    <div class="word-container" id="wordContainer"></div>
+    <div class="input-container">
+        <input type="text" id="userInput">
+        <button class="submit-button" onclick="submitGuess()">Submit</button>
+    </div>
+    <div class="countdown" id="countdown">Temps restant : 20s</div>
+    <div class="attempts" id="attempts">Tentatives restantes : 5</div>
+    <div class="message" id="message"></div>
+    <canvas id="timerCanvas" width="100" height="100"></canvas>
+
+    <!-- Musique de fond pour le jeu -->
+    <audio id="backgroundMusic" loop>
+        <source src="./assets/sounds/countdown.mp3" type="audio/mp3">
+        Votre navigateur ne supporte pas l'élément audio.
+    </audio>
+
+    <!-- Son de fin de compte à rebours -->
+    <audio id="timeoutSound">
+        <source src="./assets/sounds/timeout.mp3" type="audio/mp3">
+        Votre navigateur ne supporte pas l'élément audio.
+    </audio>
+
+    <!-- Son de victoire -->
+    <audio id="winSound">
+        <source src="./assets/sounds/win.mp3" type="audio/mp3">
+        Votre navigateur ne supporte pas l'élément audio.
+    </audio>
+
+    <!-- Son de défaite -->
+    <audio id="loseSound">
+        <source src="./assets/sounds/lose.mp3" type="audio/mp3">
+        Votre navigateur ne supporte pas l'élément audio.
+    </audio>
+
+    <script>
+        const frenchWords = ["debouchant", "borgne", "lamage", "fraisure", "oblong", "chanfrein", "profile", "nervure", "bride", "chambrage", "bossage", "alesage", "semelle", "languette", "rainure", "contenant", "contenue", "aronde", "queue", "encoche", "entaille", "saignee", "mortaise", "tenon", "embase", "epaulement", "gorge", "collet", "meplat", "axe", "arbre", "macaron", "conge", "raccord", "arrondi", "filetage", "taraudage", "goujon", "boulon", "encastrement", "pivot", "glissiere", "helicoidale", "rotule", "spherique", "appui", "ponctuelle", "lineaire", "tolerance", "ajustement"];
+        const englishWords = ["unclogged", "blindslot", "counterbore","countersink", "slotted", "chamfer", "profile", "rib", "flange", "undercutting", "boss", "bore", "sole", "tongue", "groove", "container", "content", "dovetail", "notch", "nick", "channel", "mortise", "tenon", "baseplate", "shoulder", "collet", "flat", "axis", "shaft", "button", "fillet", "join", "curve", "thread", "tapping", "pulley", "bolt", "embedding", "pivot", "runner", "helical", "ball", "spherical", "plane", "punctual", "linear", "tolerance", "tweak"];
+        let selectedWord;
+        let attempts = 5;
+        let countdown;
+        let countdownValue = 20;
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const timeoutSound = document.getElementById('timeoutSound');
+        const winSound = document.getElementById('winSound');
+        const loseSound = document.getElementById('loseSound');
+        const timerCanvas = document.getElementById('timerCanvas');
+        const ctx = timerCanvas.getContext('2d');
+
+        // Récupérer le paramètre de langue de l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const language = urlParams.get('lang');
+
+        // Initialiser le jeu
+        function initGame() {
+            backgroundMusic.play();
+            const words = language === 'fr' ? frenchWords : englishWords;
+            selectedWord = words[Math.floor(Math.random() * words.length)];
+            attempts = 5;
+            document.getElementById('attempts').textContent = 'Tentatives restantes : ' + attempts;
+            document.getElementById('message').textContent = '';
+            const userInput = document.getElementById('userInput');
+            userInput.value = '';
+            userInput.setAttribute('maxlength', selectedWord.length); // Ajuster la longueur maximale de l'entrée
+            const wordContainer = document.getElementById('wordContainer');
+            wordContainer.innerHTML = '';
+            for (let i = 0; i < selectedWord.length; i++) {
+                const letterDiv = document.createElement('div');
+                letterDiv.className = 'letter';
+                letterDiv.id = 'letter' + i;
+                letterDiv.textContent = '_';
+                wordContainer.appendChild(letterDiv);
+            }
+            startCountdown();
+        }
+
+        // Démarrer le compte à rebours
+        function startCountdown() {
+            clearInterval(countdown);
+            countdownValue = 20;
+            updateCountdown();
+            drawTimer(countdownValue);
+            backgroundMusic.currentTime = 0;
+            backgroundMusic.play();
+            countdown = setInterval(() => {
+                countdownValue--;
+                updateCountdown();
+                drawTimer(countdownValue);
+                if (countdownValue === 0) {
+                    loseAttempt();
+                }
+            }, 1000);
+        }
+
+        // Mettre à jour l'affichage du compte à rebours
+        function updateCountdown() {
+            document.getElementById('countdown').textContent = 'Temps restant : ' + countdownValue + 's';
+        }
+
+        function loseAttempt() {
+            clearInterval(countdown);  // Arrêter le compte à rebours
+            backgroundMusic.pause();
+            timeoutSound.currentTime = 0;
+            timeoutSound.play();
+            attempts--;
+            document.getElementById('attempts').textContent = 'Tentatives restantes : ' + attempts;
+            if (attempts === 0) {
+                loseSound.play();
+                endGame(false);
+            } else {
+                document.getElementById('message').textContent = 'Vous n\'êtes pas assez rapide!';
+                setTimeout(() => {
+                    document.getElementById('message').textContent = '';
+                    startCountdown();
+                }, 2000);
+            }
+        }
+
+        // Vérifier la supposition
+        function submitGuess() {
+            const userInput = document.getElementById('userInput').value.toLowerCase();
+            if (userInput.length !== selectedWord.length) {
+                alert('Le mot doit contenir ' + selectedWord.length + ' lettres.');
+                return;
+            }
+
+            let correct = 0;
+            for (let i = 0; i < selectedWord.length; i++) {
+                const letterDiv = document.getElementById('letter' + i);
+                if (userInput[i] === selectedWord[i]) {
+                    letterDiv.style.color = 'green';
+                    letterDiv.textContent = userInput[i];
+                    correct++;
+                } else if (selectedWord.includes(userInput[i])) {
+                    letterDiv.style.color = 'orange';
+                    letterDiv.textContent = userInput[i];
+                }
+            }
+
+            document.getElementById('userInput').value = '';
+
+            if (correct === selectedWord.length) {
+                winAttempt();
+            } else {
+                attempts--;
+                document.getElementById('attempts').textContent = 'Tentatives restantes : ' + attempts;
+                if (attempts === 0) {
+                    loseSound.play();
+                    endGame(false);
+                } else {
+                    startCountdown();
+                }
+            }
+        }
+
+        // Gagner une tentative si le mot est trouvé
+        function winAttempt() {
+            clearInterval(countdown);
+            backgroundMusic.pause();
+            winSound.play();
+            document.getElementById('message').textContent = 'Félicitations, vous avez trouvé le mot ' + selectedWord + '!';
+            setTimeout(() => {
+                endGame(true);
+            }, 2000);
+        }
+
+        function endGame(win) {
+            clearInterval(countdown);  // Arrêter le compte à rebours
+            backgroundMusic.pause();
+            const endButtons = document.createElement('div');
+            endButtons.className = 'end-buttons';
+            const retryButton = document.createElement('button');
+            retryButton.textContent = 'Retry';
+            retryButton.className = 'retry-button';
+            retryButton.onclick = () => {
+                initGame();
+                endButtons.remove();
+            };
+            const leaveButton = document.createElement('button');
+            leaveButton.textContent = 'Leave';
+            leaveButton.className = 'leave-button';
+            leaveButton.onclick = () => {
+                window.location.href = 'motus.html';
+            };
+            endButtons.appendChild(retryButton);
+            endButtons.appendChild(document.createTextNode('\u00A0')); // Espace entre les boutons
+            endButtons.appendChild(leaveButton);
+            document.body.appendChild(endButtons);
+            if (!win) {
+                const loseMessage = document.createElement('div');
+                loseMessage.textContent = 'Dommage! Le mot à deviner était : ' + selectedWord;
+                loseMessage.className = 'message';
+                document.body.appendChild(loseMessage);
+            }
+        }
+
+        // Dessiner le cercle de l'horloge
+        function drawTimer(time) {
+            const percentage = time / 20;
+            const endAngle = (2 * Math.PI * percentage) - 0.5 * Math.PI;
+
+            ctx.clearRect(0, 0, timerCanvas.width, timerCanvas.height);
+            ctx.beginPath();
+            ctx.arc(50, 50, 40, 0, 2 * Math.PI); // Cercle extérieur
+            ctx.strokeStyle = '#707070';
+            ctx.lineWidth = 5;
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(50, 50, 40, -0.5 * Math.PI, endAngle); // Timer
+            ctx.lineTo(50, 50);
+            ctx.fillStyle = '#707070';
+            ctx.fill();
+        }
+
+        // Initialisation du jeu lors du chargement de la page
+        window.onload = () => {
+            initGame();
+        };
+    </script>
+</body>
+</html>

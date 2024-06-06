@@ -79,6 +79,9 @@ body.dark{
     transition: var(--transition-03);
     white-space: nowrap;
     opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sidebar.close .text{
@@ -440,3 +443,12 @@ body.dark .switch::before{
     width: calc(100% - 88px);
 }
 
+.small-button {
+    padding: 5px 10px;
+    font-size: 14px; 
+}
+
+#dateTimeDisplay {
+    margin-right: 10px; 
+    color: #55209b;
+}
