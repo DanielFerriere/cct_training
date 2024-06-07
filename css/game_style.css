@@ -1,34 +1,37 @@
 /* kinematic style */
 
-/*
 :root{
-    --text-button-color: #707070;
+    /*--text-button-color: #707070;
     --text-button-hover-color: #FFF;
     --button-color: #E0D2FF;
     --button-hover-color: #55209b;
-    --button-disabled-color: #f1e6ff;
+    --button-disabled-color: #f1e6ff;*/
+    --disabled-right: #1fe2bb;
+    --disabled-wrong: #ff8999;
 }
 
 body.dark{
-    --text-button-color: #ccc;
+    /*--text-button-color: #ccc;
     --text-button-hover-color: #CCC;
     --button-color: #3d3d3d;
     --button-hover-color: #6d6d6d;
-    --button-disabled-color: #a8a8a8;
+    --button-disabled-color: #a8a8a8;*/
+    --disabled-right: #18af90;
+    --disabled-wrong: #cc6d7a;
 }
-*/
+
 
 .home button.right:disabled {
     cursor: default;
     color: var(--text-button-hover-color);
-    background-color: #1fe2bb;
+    background-color: var(--disabled-right);
     transition: var(--transition-03);
 }
 
 .home button.wrong:disabled {
     cursor: default;
     color: var(--text-button-hover-color);
-    background-color: #ff8999;
+    background-color: var(--disabled-wrong);
     transition: var(--transition-03);
 }
 
@@ -94,14 +97,14 @@ form input {
 form input.right:disabled {
     cursor: default;
     color: var(--text-button-hover-color);
-    background-color: #1fe2bb;
+    background-color: var(--disabled-right);
     transition: var(--transition-03);
 }
 
 form input.wrong:disabled {
     cursor: default;
     color: var(--text-button-hover-color);
-    background-color: #ff8999;
+    background-color: var(--disabled-wrong);
     transition: var(--transition-03);
 }
 

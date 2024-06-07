@@ -47,8 +47,8 @@ body.dark{
     --text-button-color: #ccc;
     --text-button-hover-color: #CCC;
     --button-color: #3d3d3d;
-    --button-hover-color: #6d6d6d;
-    --button-disabled-color: #a8a8a8;
+    --button-hover-color: #727272;
+    --button-disabled-color: #353535;
 }
 
 /* ====== Sidebar ====== */
