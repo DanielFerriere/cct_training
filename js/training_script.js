@@ -18,6 +18,17 @@ for (let i=0; i<3; i++) {
 }
 
 
+/**
+ * Hide all modal
+ */
+function hide_modal() {
+    modal.classList.remove("show-modal");
+    shapeModal.classList.remove("show-modal-content");
+    kinematicModal.classList.remove("show-modal-content");
+    materialModal.classList.remove("show-modal-content");
+}
+
+
 
 
 shapeBtn.addEventListener("click", function() {
@@ -40,17 +51,20 @@ materialBtn.addEventListener("click", function() {
 
 arrayGamemodeBtn[0][0].addEventListener("click", function(event) {
     event.preventDefault();
-    window.location.href = "./page/shape_game1.html"
+    window.location.href = "./page/shape_game1.html";
+    hide_modal();
 });
 
 arrayGamemodeBtn[0][1].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/shape_game2.html";
+    hide_modal();
 });
 
 arrayGamemodeBtn[0][2].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/shape_game3.html";
+    hide_modal();
 });
 
 arrayGamemodeBtn[0][3].addEventListener("click", function(event) {
@@ -62,42 +76,50 @@ arrayGamemodeBtn[0][3].addEventListener("click", function(event) {
 arrayGamemodeBtn[1][0].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/kinematic_game1.html";
+    hide_modal();
 });
 
 arrayGamemodeBtn[1][1].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/kinematic_game2.html";
+    hide_modal();
 });
 
 arrayGamemodeBtn[1][2].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/kinematic_game3.html";
+    hide_modal();
 });
 
 arrayGamemodeBtn[1][3].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/kinematic_game4.html";
+    hide_modal();
 });
 
 
 arrayGamemodeBtn[2][0].addEventListener("click", function(event) {
     event.preventDefault();
-    window.location.href = "./page/material_game1.html"
+    window.location.href = "./page/material_game1.html";
+    hide_modal();
 });
 
 arrayGamemodeBtn[2][1].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/material_game2.html";
+    hide_modal();
 });
 
 arrayGamemodeBtn[2][2].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/material_game3.html";
+    hide_modal();
 });
 
 arrayGamemodeBtn[2][3].addEventListener("click", function(event) {
     event.preventDefault();
     window.location.href = "./page/material_game4.html";
+    hide_modal();
 });
 
 
@@ -108,10 +130,7 @@ arrayGamemodeBtn[2][3].addEventListener("click", function(event) {
 
 for (let i=0; i<arrayBackBtn.length; i++) {
     arrayBackBtn[i].addEventListener("click", function () {
-        modal.classList.remove("show-modal");
-        shapeModal.classList.remove("show-modal-content");
-        kinematicModal.classList.remove("show-modal-content");
-        materialModal.classList.remove("show-modal-content");
+        hide_modal();
     });
 }
 
