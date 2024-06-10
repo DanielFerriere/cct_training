@@ -2,12 +2,12 @@
     "name_file_fr" : [
         { "name": "Appui Plan x", "file": "appui_plan_x.svg", "tips" : "DEGRE DE LIBERTE : 3</br>Translations possibles: 2 (Ty,Tz)</br>Rotation possible: 1 (Rx) " },
         { "name": "Glissière x", "file": "glissiere_x.svg", "tips" : "DEGRE DE LIBERTE : 1</br>Translation possible: 1 (Tx)</br>Rotation possible: 0" },
-        { "name": "Linéaire Annulaire /Linéaire Circulaire x", "file": "lineaire_annulaire_x.svg", "tips" : "DEGRE DE LIBERTE : 3</br>Translations possibles: 1 (Tx)</br>Rotations possibles: 2 (Rx,Rz)" },
+        { "name": "Linéaire Annulaire/Linéaire Circulaire x", "file": "lineaire_annulaire_x.svg", "tips" : "DEGRE DE LIBERTE : 3</br>Translations possibles: 1 (Tx)</br>Rotations possibles: 2 (Rx,Rz)" },
         { "name": "Linéaire Rectiligne", "file": "lineaire_rectiligne_x_y.svg", "tips" : "DEGRE DE LIBERTE : 4 </br> Translations possibles: 2 (Ty,Tz)</br>Rotation possible: 2 (Rx,Ry)" },
         { "name": "Pivot Glissant x", "file": "pivot_glissant_x.svg", "tips" : "DEGRE DE LIBERTE : 2 </br> Translation possible: 1 (Tx)</br>Rotation possible: 1 (Rx)" },
         { "name": "Pivot x", "file": "pivot_x.svg", "tips" : "DEGRE DE LIBERTE : 1</br>Translation possible: 0</br>Rotation possible: 1 (Rx)" },
         { "name": "Hélicoïdale x", "file": "helicoidale_x.svg", "tips" : "DEGRE DE LIBERTE : 1</br>Translation et Rotation possible combinées: 1 (Tx+Rx)</br>Cas Spécial !!!" },
-        { "name": "Ponctuelle/Shère-Plan x", "file": "ponctuelle_x.svg", "tips" : "DEGRE DE LIBERTE : 5</br>Translations possibles: 2 (Ty,Tz)</br>Rotations possibles: 3 (Rx,Ry,Rz)" },
+        { "name": "Ponctuelle x/Shère-Plan x", "file": "ponctuelle_x.svg", "tips" : "DEGRE DE LIBERTE : 5</br>Translations possibles: 2 (Ty,Tz)</br>Rotations possibles: 3 (Rx,Ry,Rz)" },
         { "name": "Rotule", "file": "rotule.svg", "tips" : "DEGRE DE LIBERTE : 3</br>Translation possible: 0</br>Rotations possibles: 3 (Tx,Ty,Tz)" },
         { "name": "Rotule à doigt", "file": "rotule_doigt_x.svg", "tips" : "DEGRE DE LIBERTE : 2</br>Translation possible: 0</br>Rotations possibles: 2(Ty,Tz)" }
     ],
