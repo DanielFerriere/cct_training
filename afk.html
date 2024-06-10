@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCT Training - AFK Page</title>
+
+    <!--======= CSS =======-->
+    <link rel="stylesheet" href="./css/main_style.css">
+
+    <!-- ====== Boxicons CSS ====== -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        /* Ajouter un style pour couvrir toute la fenêtre */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        /* Ajouter un style pour le conteneur vidéo */
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            overflow: hidden;
+        }
+        /* Ajouter un style pour masquer les contrôles de lecture de la vidéo */
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none; /* Empêcher la vidéo d'interférer avec les interactions utilisateur */
+        }
+        /* Style pour la barre de luminosité */
+        #brightness-control {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 1; 
+            width: 200px;
+        }
+        /* Style pour la barre de volume */
+        #volume-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1; 
+            width: 200px;
+        }
+        /* Style pour l'élément range */
+        input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            background: #ddd;
+            height: 5px;
+            outline: none;
+            border-radius: 5px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background: #333;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 15px;
+            height: 15px;
+            background: #333;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        /* Style pour le texte du volume */
+        #volume-text {
+            margin-top: 5px;
+            text-align: center;
+            color: #ddd;
+        }
+        /* Style pour le bouton de retour */
+        #return-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px; 
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #333;
+            color: #fff;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Ajouter le conteneur vidéo -->
+    <div id="video-container">
+        <video autoplay loop muted>
+            <source src="./assets/background_video.mp4" type="video/mp4">
+            Votre navigateur ne prend pas en charge la lecture de la vidéo.
+        </video>
+    </div>
+
+    <!-- Ajouter une balise audio pour jouer le fichier audio MP3 -->
+    <audio autoplay loop id="background-audio">
+        <source src="./assets/sounds/background_audio.mp3" type="audio/mp3">
+        Votre navigateur ne prend pas en charge la lecture audio.
+    </audio>
+
+    <!-- Ajouter le conteneur de la barre de volume -->
+    <div id="volume-control">
+        <!-- Ajouter un élément de type range pour le contrôle du volume -->
+        <input type="range" min="0" max="100" value="100" step="10" onchange="setVolume(this.value)">
+        <!-- Ajouter un élément pour afficher le texte du volume -->
+        <div id="volume-text">Volume : 100%</div>
+    </div>
+
+    <!-- Ajouter le conteneur de la barre de luminosité -->
+    <div id="brightness-control">
+        <!-- Ajouter un élément de type range pour le contrôle de la luminosité -->
+        <input type="range" min="10" max="100" value="100" step="10" onchange="setBrightness(this.value)">
+        <!-- Ajouter un élément pour afficher le texte de la luminosité -->
+        <div class="volume-text">Luminosité</div>
+    </div>
+
+    <!-- Ajouter le bouton de retour -->
+    <div id="return-button" onclick="returnToIndex()">
+        <!-- Utiliser une icône de Boxicons -->
+        <i class='bx bx-arrow-back'></i>
+    </div>
+
+    <script>
+        // Fonction pour régler la luminosité de la vidéo
+        function setBrightness(brightness) {
+            // Sélectionne l'élément vidéo
+            var video = document.querySelector('video');
+            // Applique la luminosité
+            video.style.filter = 'brightness(' + brightness + '%)';
+            // Met à jour le texte de la luminosité
+            document.querySelector('#brightness-control .control-text').textContent = 'Luminosité : ' + brightness + '%';
+        }
+
+        // Fonction pour régler le volume de l'audio
+        function setVolume(volume) {
+            // Sélectionne l'élément audio
+            var audio = document.getElementById('background-audio');
+            // Définit le volume
+            audio.volume = volume / 100;
+            // Met à jour le texte du volume
+            document.getElementById('volume-text').textContent = 'Volume : ' + volume + '%';
+        }
+
+        // Fonction pour retourner à la page index.html
+        function returnToIndex() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

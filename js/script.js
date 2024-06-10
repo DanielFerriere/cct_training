@@ -87,5 +87,65 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    let timeout;
 
+    // Fonction de redirection vers la page AFK après 100 minutes d'inactivité
+    function startInactivityTimer() {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            window.location.href = 'afk.html';
+        }, 6000000); // 100 min
+    }
 
+    // Remise à zéro du timer en cas d'activité de l'utilisateur
+    function resetTimer() {
+        clearTimeout(timeout);
+        startInactivityTimer();
+    }
+
+    // Événements pour détecter l'activité de l'utilisateur
+    document.addEventListener('mousemove', resetTimer);
+    document.addEventListener('keypress', resetTimer);
+    document.addEventListener('click', resetTimer);
+    document.addEventListener('scroll', resetTimer);
+    document.addEventListener('keydown', resetTimer);
+
+    startInactivityTimer();
+
+     // Fonction de recherche et de mise en évidence des résultats dans la barre de navigation
+    async function searchInPages(query) {
+        const pages = [
+            { name: 'Dashboard', url: 'index.html', element: document.querySelector('.nav-link a[href="#"]') },
+            { name: 'Learning', url: 'learning.html', element: document.querySelector('.nav-link a[href="#"]') },
+            { name: 'Exercising', url: 'training.html', element: document.querySelector('.nav-link a[href="./training.html"]') },
+            { name: 'Leaderboard', url: 'leaderboard.html', element: document.querySelector('.nav-link a[href="#"]') },
+            { name: 'Settings', url: 'settings.html', element: document.querySelector('.nav-link a[href="./settings.html"]') }
+        ];
+
+        pages.forEach(page => {
+            page.element.style.backgroundColor = ''; 
+        });
+
+        for (const page of pages) {
+            try {
+                const response = await fetch(page.url);
+                const text = await response.text();
+                if (text.toLowerCase().includes(query.toLowerCase())) {
+                    page.element.style.backgroundColor = '#55209b';
+                    page.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            } catch (error) {
+                console.error(`Error fetching ${page.url}:`, error);
+            }
+        }
+    }
+
+    const searchBox = document.querySelector('.search-box input');
+    searchBox.addEventListener('input', function () {
+        const query = searchBox.value;
+        if (query.length > 0) {
+            searchInPages(query);
+        }
+    });
+});

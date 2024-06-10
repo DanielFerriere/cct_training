@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCT Training - Cultura Motus</title>
+    
+    <!--======= CSS =======-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E0D2FF;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .play-button {
+            padding: 10px 20px;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .play-button:hover {
+            background-color: #5752d1;
+        }
+
+        #hoverText {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 8px;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="hoverText">Coding by Nolan</div>
+    <h1>Cultura Motus</h1>
+    <p>Ce jeu est inspiré du jeu de Motus et cette page a été créé dans le but d'apprendre le vocabulaire qui devra être étudié pendant le cursus d'ingénieur au sein de la première année de l'INSA dans la matière Culture et Communication Technologique (CCT). Il est destiné à but éducatif et permet de pouvoir s'entraîner d'une autre manière plus amusante et moins «scolaire».</p>
+    <button class="play-button lang-button" onclick="startGame('fr')">Français</button>
+    <br>
+    <button class="play-button lang-button" onclick="startGame('en')">English</button>
+    <br><br>
+    <button class="play-button leave-button" onclick="leaveGame()">Leave</button>
+
+    <!-- Musique de fond pour la page d'accueil -->
+    <audio id="homeBackgroundMusic" loop>
+         <source src="./assets/sounds/background_audio.mp3" type="audio/mp3">
+         Votre navigateur ne supporte pas l'élément audio.
+    </audio>
+    
+
+    <script>
+        const homeBackgroundMusic = document.getElementById('homeBackgroundMusic');
+        homeBackgroundMusic.play();
+
+        function startGame(language) {
+            window.location.href = `motus_game.html?lang=${language}`;
+        }
+
+        function leaveGame() {
+            window.location.href = 'settings.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const hoverText = document.getElementById('hoverText');
+
+            function showHoverText() {
+                hoverText.style.display = 'block';
+            }
+
+            function hideHoverText() {
+                hoverText.style.display = 'none';
+            }
+
+            const buttons = document.querySelectorAll('.leave-button, .lang-button, .play-button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseover', showHoverText);
+                button.addEventListener('mouseout', hideHoverText);
+            });
+        });
+    </script>
+</body>
+</html>
