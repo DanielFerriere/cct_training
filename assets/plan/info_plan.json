@@ -83,7 +83,7 @@
                     { "name": "glissière x", "relate_group": ["A", "C"], "bound": [[1371, 358], [4585, 1463]] },
                     { "name": "hélicoïdale x", "relate_group": ["A", "D"], "bound": [[2187, 534], [2877, 1216]] },
                     { "name": "pivot z", "relate_group": ["B", "E"], "bound": [[1082, 432], [1637, 2926]] },
-                    { "name": "ponctuelle x", "relate_group": ["C", "D"], "bound": [[1701, 557], [2181, 1043]] }
+                    { "name": "ponctuelle x/shère-plan x", "relate_group": ["C", "D"], "bound": [[1701, 557], [2181, 1043]] }
                 ]
             },
             "shape":
@@ -135,7 +135,7 @@
                     { "name": "pivot y", "relate_group": ["A", "B"], "bound": [[3648, 75], [4805, 1539]] },
                     { "name": "pivot glissant y", "relate_group": ["A", "C"], "bound": [[1033, 330], [1594, 872]] },
                     { "name": "pivot z", "relate_group": ["B", "D"], "bound": [[1693, 71], [4218, 2889]] },
-                    { "name": "ponctuelle y", "relate_group": ["C", "D"], "bound": [[1033, 330], [1594, 872]] },
+                    { "name": "ponctuelle y/shère-plan y", "relate_group": ["C", "D"], "bound": [[1033, 330], [1594, 872]] },
                     { "name": "hélicoïdale y", "relate_group": ["D", "E"], "bound": [[2940, 121], [3347, 2648]] }
                 ]
             },
@@ -274,10 +274,10 @@
                     { "name": "pivot z", "relate_group": ["A", "F"], "bound": [[1838, 1309], [2424, 2058]] },
                     { "name": "pivot glissant y", "relate_group": ["A", "G"], "bound": [[974, 1643], [2078, 3629]] },
                     { "name": "pivot z", "relate_group": ["A", "I"], "bound": [[674, 3277], [2475, 4965]] },
-                    { "name": "ponctuelle i", "relate_group": ["B", "C"], "bound": [[589, 556], [989, 956]] },
+                    { "name": "ponctuelle i/shère-plan i", "relate_group": ["B", "C"], "bound": [[589, 556], [989, 956]] },
                     { "name": "rotule", "relate_group": ["C", "D"], "bound": [[1233, 254], [1633, 654]] },
                     { "name": "rotule", "relate_group": ["D", "E"], "bound": [[1829, 1286], [2296, 1811]] },
-                    { "name": "ponctuelle j/linéaire rectiligne j", "relate_group": ["E", "F"], "bound": [[1964, 1737], [2586, 2360]] },
+                    { "name": "ponctuelle j/shère-plan j/linéaire rectiligne j", "relate_group": ["E", "F"], "bound": [[1964, 1737], [2586, 2360]] },
                     { "name": "pivot z", "relate_group": ["G", "H"], "bound": [[1062, 2675], [1992, 3605]] },
                     { "name": "pivot z", "relate_group": ["H", "I"], "bound": [[1305, 4154], [2235, 4965]] }
                 ]
@@ -373,7 +373,7 @@
                 [
                     { "name": "appui plan y", "relate_group": ["A", "B"], "bound": [[76, 1495], [2308, 2446]] },
                     { "name": "glissière y", "relate_group": ["A", "C"], "bound": [[185, 637], [791, 1852]] },
-                    { "name": "ponctuelle y", "relate_group": ["A", "D"], "bound": [[598, 640], [2320, 1498]] },
+                    { "name": "ponctuelle y/shère-plan y", "relate_group": ["A", "D"], "bound": [[598, 640], [2320, 1498]] },
                     { "name": "glissière y", "relate_group": ["B", "C"], "bound": [[218, 1708], [768, 2348]] },
                     { "name": "pivot x", "relate_group": ["C", "D"], "bound": [[649, 856], [1707, 1480]] }
                 ]
