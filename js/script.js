@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.removeItem("currentUser");
 
         // Rediriger vers la page de connexion
-        window.location.href = go2RootFile("login.html");
+        go2RootFile("login.html");
     });
 });
 
