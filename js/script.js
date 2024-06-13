@@ -66,7 +66,16 @@ document.addEventListener("DOMContentLoaded", function() {
     
     trainingBtn.addEventListener("click", function(event) {
         event.preventDefault();
-        go2RootFile("training.html")
+        go2RootFile("training.html");
+    })
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const leaderboardBtn = document.getElementById("leaderboardBtn");
+    
+    leaderboardBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.alert("Coming soon...");
     })
 });
 
