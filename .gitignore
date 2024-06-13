@@ -1,4 +1,8 @@
 bug_census.csv
 explanations.txt
 
+assets/test_plan.jpg
+
 js/test_game4.js
+js/game_script.js
+js/utils_script.js
