@@ -437,7 +437,7 @@ main{
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--text-button-color);
-    background-color: #ffffff;
+    background-color: var(--sidebar-color);
     box-shadow: 0px 0px 5px gray;
     padding: 1rem 1.5rem;
     width: 30rem;
