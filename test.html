@@ -165,11 +165,10 @@
                 .y(d => y(d.value))
                 )
             // Add the points
-            svg
-              .append("g")
-              .selectAll("dot")
-              .data(data)
-              .join("circle")
+            svg.append("g")
+                .selectAll("dot")
+                .data(data)
+                .join("circle")
                 .attr("cx", d => x(d.occ))
                 .attr("cy", d => y(d.value))
                 .attr("r", 8)
