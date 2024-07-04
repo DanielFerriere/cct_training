@@ -1,0 +1,9 @@
+[
+    { "occ" : 1, "value" : 0.5},
+    { "occ" : 2, "value" : 0.4},
+    { "occ" : 3, "value" : 0.1},
+    { "occ" : "D", "value" : 1.0},
+    { "occ" : 5, "value" : 0.9},
+    { "occ" : 6, "value" : 0.2},
+    { "occ" : 7, "value" : 0.2}
+]
