@@ -115,10 +115,36 @@
          * End up game
          */
         finish_game() {
+            //get the success rate of the player in his machine
+            let success = localStorage.getItem("success_rate");
+            let date = new Date();
+
+            try {
+                JSON.parse(success);
+            } catch (e) {
+                alert("An error occurred");
+                success = [];
+            }
+
+            if (success === null) success = [];
+
+            //add the average note on the success rate list
+            console.log(success);
+            //console.log(success[success.length-1]["date"] != `${date.getDate()}/${date.getMonth()+1}`);
+            if (success.length == 0 || success[success.length-1]["date"] != `${date.getDate()}/${date.getMonth()+1}`) {
+                success.push({"date": `${date.getDate()}/${date.getMonth()+1}`, "avgs" : []});
+            }
+            if (success.length >= 7) success.shift();
+
+            success[success.length-1]["avgs"].push(this.score/this.score_max);
+
+            //update the success rate in the local storage
+            localStorage.setItem("success_rate", JSON.stringify(success));
+
+            //show modal for the game ending
             let textModal = this.modalContent.querySelector("h2");
             textModal.innerText = "Votre score est de ".concat(this.score,"/",this.score_max);
             this.modalContent.classList.toggle("show-modal-content");
-    
             this.modal.classList.toggle("show-modal");
         }
 
