@@ -416,6 +416,12 @@ main{
     /*width: calc(100% - 1em);*/
 }
 
+#graphDiv {
+    height: 100%;
+    width: 100%;
+    color: var(--text-color);
+}
+
 
 .modal {
     position: fixed;

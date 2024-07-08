@@ -133,7 +133,7 @@ for (let i=0; i<arrayBackBtn.length; i++) {
 
 
 //set the dimensions and margins of the graph
-const margin = {top: 30, right: 30, bottom: 30, left: 30};
+const margin = {top: 10, right: 10, bottom: 30, left: 30};
 //append the svg object to the body of the page
 const svg = d3.select("#graphDiv")
     .append("svg")
