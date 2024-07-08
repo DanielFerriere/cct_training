@@ -120,7 +120,7 @@
             let date = new Date();
 
             try {
-                JSON.parse(success);
+                success = JSON.parse(success);
             } catch (e) {
                 alert("An error occurred");
                 success = [];
