@@ -143,65 +143,75 @@ const g = svg.append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
 const svgHTML = svg.node();
-var height = svgHTML.clientHeight - margin.top - margin.bottom;
-var width = svgHTML.clientWidth - margin.left - margin.right;
 
 //Read the data
-d3.json("../test_data.json").then(
-    function(data) {
+var data = localStorage.getItem("success_rate");
 
-        //Add X axis
-        const x = d3.scalePoint()
-            .domain([1,2,3,"D",5,6,7]);
-        const xAxis = g.append("g");
-        
-        //Add Y axis
-        const y = d3.scaleLinear()
-            .domain( [0, 1.0]);
-        const yAxis = g.append("g");
+try {
+    data = JSON.parse(data);
+} catch (e) {
+    alert("An error occurred");
+    data = [];
+}
 
-        //Add the line
-        const lines = g.append("path")
-            .datum(data)
-            .attr("fill", "none")
-            .attr("stroke", "#69b3a2")
-            .attr("stroke-width", 4)
+if (data === null) data = [];
 
-        //Add the points
-        const circles = g.append("g")
-            .selectAll("dot")
-            .data(data)
-            .join("circle")
-            .attr("r", 8)
-            .attr("fill", "#69b3a2");
-        
-        function drawGraph() {
-            //get the width and height of the svg where the graph appear
-            height = svgHTML.clientHeight - margin.top - margin.bottom;
-            width = svgHTML.clientWidth - margin.left - margin.right;
-          
-            //Update the X scale and Axis
-            x.range([0, width]);
-            xAxis.call(d3.axisBottom(x))
-                .attr("transform", "translate(0," + height + ")");
-
-            //Update the Y scale and Axis
-            y.range([height, 0]);
-            yAxis.call(d3.axisLeft(y));
-
-            //Add the last informations needed for the lines
-            lines.attr("d", d3.line()
-                .x(d => x(d.occ))
-                .y(d => y(d.value))
-            );
-          
-            //Add the last informations needed for the circles: their X and Y position
-            circles.attr("cx", d => x(d.occ))
-                .attr("cy", d => y(d.value));
-        }
-
-        drawGraph();
-
-        window.addEventListener('resize', drawGraph);
+data.forEach(
+    (elt) => {
+        elt["total_avg"] = elt["avgs"].reduce( (sum, val) => sum + val, 0)/elt["avgs"].length;
     }
-)
+);
+
+//Add X axis
+const x = d3.scalePoint()
+    .domain(data.map(elt => elt["date"]));
+const xAxis = g.append("g");
+
+//Add Y axis
+const y = d3.scaleLinear()
+    .domain( [0, 1.0]);
+const yAxis = g.append("g");
+
+//Add the line
+const lines = g.append("path")
+    .datum(data)
+    .attr("fill", "none")
+    .attr("stroke", "#69b3a2")
+    .attr("stroke-width", 4)
+
+//Add the points
+const circles = g.append("g")
+    .selectAll("dot")
+    .data(data)
+    .join("circle")
+    .attr("r", 8)
+    .attr("fill", "#69b3a2");
+
+function drawGraph() {
+    //get the width and height of the svg where the graph appear
+    let height = svgHTML.clientHeight - margin.top - margin.bottom;
+    let width = svgHTML.clientWidth - margin.left - margin.right;
+  
+    //Update the X scale and Axis
+    x.range([0, width]);
+    xAxis.call(d3.axisBottom(x))
+        .attr("transform", "translate(0," + height + ")");
+
+    //Update the Y scale and Axis
+    y.range([height, 0]);
+    yAxis.call(d3.axisLeft(y));
+
+    //Add the last informations needed for the lines
+    lines.attr("d", d3.line()
+        .x(d => x(d.date))
+        .y(d => y(d.total_avg))
+    );
+  
+    //Add the last informations needed for the circles: their X and Y position
+    circles.attr("cx", d => x(d.date))
+        .attr("cy", d => y(d.total_avg));
+}
+
+drawGraph();
+
+window.addEventListener('resize', drawGraph);
